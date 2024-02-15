@@ -18,6 +18,8 @@ import {
   type ReactNode,
 } from "react";
 import { Controller, useFormContext } from "react-hook-form";
+import darkSpinner from "../assets/images/spinner_dark.svg";
+import lightSpinner from "../assets/images/spinner_light.svg";
 import { type ExtendedMantineSize } from "../types";
 import { Avatar } from "./Avatar";
 import { Flex } from "./Flex";
@@ -62,8 +64,8 @@ const useStyles = createStyles(
           backgroundImage: `url(${
             isLoading
               ? theme.colorScheme === "dark"
-                ? "/assets/images/spinner_light.svg"
-                : "/assets/images/spinner_dark.svg"
+                ? lightSpinner.src
+                : darkSpinner.src
               : imageUri
           })`,
           backgroundSize: "contain",

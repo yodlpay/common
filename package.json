@@ -30,13 +30,22 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.40.0",
     "react-web3-icons": "^1.7.0",
+    "storybook-dark-mode": "^3.0.3",
     "viem": "2.x",
     "wagmi": "^2.5.7",
     "zod": "^3.22.2"
   },
   "devDependencies": {
+    "@storybook/addon-essentials": "^7.6.16",
+    "@storybook/addon-interactions": "^7.6.16",
+    "@storybook/addon-links": "^7.6.16",
+    "@storybook/addon-onboarding": "^1.0.11",
+    "@storybook/blocks": "^7.6.16",
+    "@storybook/nextjs": "^7.6.16",
     "@storybook/react": "^7.4.5",
+    "@storybook/test": "^7.6.16",
     "@types/react": "^18.2.55",
+    "storybook": "^7.6.16",
     "typescript": "^5.1.6"
   },
   "engines": {

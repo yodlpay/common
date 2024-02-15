@@ -13,6 +13,6 @@
     "jsx": "react-jsx",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "resolveJsonModule": true
-  }
+    "resolveJsonModule": true,
+  },
 }
