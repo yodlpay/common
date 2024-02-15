@@ -1,4 +1,7 @@
 // .npmignore
 
-src
-dist/stories
+src/
+dist/stories/
+.storybook/
+.DS_Store
+node_modules/

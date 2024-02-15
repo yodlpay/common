@@ -1,11 +1,22 @@
 {
-  "name": "common",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "@yodlpay/common",
+  "version": "0.1.0",
+  "description": "Commons shared between Yodl frontend and Yodl plugin.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "repository": "git@github.com:yodlpay/common.git",
+  "author": "YodlPay",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsc && copyfiles -u 1 src/*.json dist/",
+    "postbuild": "copyfiles -u 1 src/*.json dist/",
+    "prepublishOnly": "npm run build",
+    "build": "tsc",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint": "eslint . --ext .tsx --ext .ts",
