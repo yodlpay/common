@@ -1,0 +1,54 @@
+@font-face {
+  font-family: "Source Code Pro";
+  src: url("../public/assets/fonts/SourceCodePro/static/SourceCodePro-Regular.ttf");
+  font-weight: 400;
+  font-style: normal;
+}
+
+.spinner-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  margin: -8px;
+}
+
+.coin-spinner {
+  display: inline-block;
+  transform: translateZ(1px);
+}
+
+.coin-spinner > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  margin: 8px;
+  border-radius: 50%;
+  background: #5a55f4;
+  animation: coin-spinner 3.6s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.coin-spinner > div > img {
+  width: 32px;
+  height: 32px;
+}
+
+@keyframes coin-spinner {
+  0%,
+  100% {
+    animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
+  }
+  0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(1800deg);
+    animation-timing-function: cubic-bezier(0, 0.5, 0.5, 1);
+  }
+  100% {
+    transform: rotateY(3600deg);
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:yodlpay/common.git",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc && copyfiles -u 1 src/*.json dist/",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "lint": "eslint . --ext .tsx --ext .ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@chainlink/contracts": "^0.6.1",
+    "@heroicons/react": "^2.0.13",
+    "@mantine/carousel": "^6.0.17",
+    "@mantine/core": "^6.0.17",
+    "@mantine/hooks": "^6.0.17",
+    "@rainbow-me/rainbowkit": "^2.0.0",
+    "@tanstack/react-query": "^5.20.5",
+    "@yodlpay/tokenlists": "^0.1.49",
+    "copyfiles": "^2.4.1",
+    "date-fns": "^2.29.3",
+    "decimal.js": "^10.4.3",
+    "embla-carousel-autoplay": "^8.0.0-rc13",
+    "embla-carousel-react": "^8.0.0-rc13",
+    "next": "14.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.40.0",
+    "react-web3-icons": "^1.7.0",
+    "viem": "2.x",
+    "wagmi": "^2.5.7",
+    "zod": "^3.22.2"
+  },
+  "devDependencies": {
+    "@storybook/react": "^7.4.5",
+    "@types/react": "^18.2.55",
+    "typescript": "^5.1.6"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

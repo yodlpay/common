@@ -1,0 +1,4 @@
+// .npmignore
+
+src
+dist/stories
