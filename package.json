@@ -1,5 +1,5 @@
 {
-  "name": "@yodlpay/common",
+  "name": "@hiropay/common",
   "version": "0.1.0",
   "description": "Commons shared between Yodl frontend and Yodl plugin.",
   "main": "dist/index.js",
