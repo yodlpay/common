@@ -7,7 +7,7 @@ import {
   type PublicClient,
   type TransactionReceipt,
 } from "viem";
-import type Decimal from "../lib/decimal";
+import type { Decimal } from "../lib/decimal";
 
 export enum PointEventType {
   FIRST_LINK_CREATION = "FIRST_LINK_CREATION",

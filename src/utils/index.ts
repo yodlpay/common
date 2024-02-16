@@ -51,7 +51,7 @@ import {
   TOKEN_DECIMALS,
   YODL_URL,
 } from "../constants";
-import Decimal from "../lib/decimal";
+import { Decimal } from "../lib/decimal";
 import type {
   Account,
   CoinConfig,
@@ -825,7 +825,7 @@ export const generateWagmiConfig = ({
 
   const chains = (testnetMode ? [mainnet] : [...supportedChains]) as readonly [
     Chain,
-    ...Chain[],
+    ...Chain[]
   ];
 
   const transports = createTransports(rpcUrls);
@@ -1046,7 +1046,7 @@ export const transformToTokenBalance = (
   ({
     ...tokenDetails,
     balance: (tokenDetails.balance as bigint).toString(),
-  }) as TokenBalance;
+  } as TokenBalance);
 
 // In our tokenlist we will always represent the native token with the native token address
 export const isNativeToken = (tokenInfo: TokenInfo) =>
