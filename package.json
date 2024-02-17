@@ -1,6 +1,6 @@
 {
   "name": "@hiropay/common",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Commons shared between Yodl frontend and Yodl plugin.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -14,7 +14,7 @@
     "access": "public"
   },
   "scripts": {
-    "postbuild": "copyfiles -u 1 src/*.json dist/",
+    "postbuild": "copyfiles -u 1 \"src/assets/**/*\" dist/ && copyfiles -u 1 src/*.json dist/",
     "prepublishOnly": "npm run build",
     "build": "tsc",
     "storybook": "storybook dev -p 6006",
