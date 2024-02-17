@@ -3,7 +3,7 @@ import { CheckBadgeIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { createStyles } from "@mantine/core";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Ethereum, MetaMask, Shib } from "react-web3-icons";
-import { MINIMAL_SIZE_OPTIONS } from "../styles/theme";
+import { MINIMAL_SIZE_OPTIONS } from "../styles";
 import { NavLink, type NavLinkProps } from "../components/NavLink";
 
 const useStyles = createStyles((theme) => ({

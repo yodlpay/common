@@ -16,7 +16,7 @@ import {
 } from "@mantine/core";
 import { forwardRef, type ReactNode } from "react";
 import type { ExtendedMantineSize } from "../types";
-import { getColorFromProp } from "../styles/theme";
+import { getColorFromProp } from "../styles";
 
 const HEIGHT_SIZE_MAPPER = {
   xs: rem(24),

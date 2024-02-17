@@ -11,7 +11,7 @@ import {
   MOBILE_BREAKPOINT,
   MOBILE_HEADING_SIZES,
   theme,
-} from "../styles/theme";
+} from "../styles";
 import {
   Payment,
   PaymentState,

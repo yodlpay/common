@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Badge } from "../components/Badge";
 import { Ethereum, Polygon } from "react-web3-icons";
-import { SIZE_OPTIONS } from "../styles/theme";
+import { SIZE_OPTIONS } from "../styles";
 
 const defaults = {
   color: "brand.0",

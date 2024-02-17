@@ -1,7 +1,7 @@
 import { useArgs } from "@storybook/preview-api";
 import type { Meta, StoryObj } from "@storybook/react";
 import { CHAINS } from "../constants";
-import { SIZE_OPTIONS } from "../styles/theme";
+import { SIZE_OPTIONS } from "../styles";
 import { Select, type SelectProps } from "../components/Select";
 
 const SELECT_DATA = CHAINS.map((chain) => chain.chainName);

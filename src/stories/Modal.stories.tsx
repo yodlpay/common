@@ -3,7 +3,7 @@ import { Modal, type ModalProps } from "../components/Modal";
 import { Button } from "../components/Button";
 import { useArgs } from "@storybook/preview-api";
 import { ScrollArea } from "@mantine/core";
-import { SIZE_OPTIONS } from "../styles/theme";
+import { SIZE_OPTIONS } from "../styles";
 
 const defaults = {
   centered: false,

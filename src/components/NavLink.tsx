@@ -9,7 +9,7 @@ import {
 import { Flex } from "./Flex";
 import { Text } from "./Text";
 import { forwardRef, type ReactNode } from "react";
-import { MOBILE_BREAKPOINT, addLineClamp } from "../styles/theme";
+import { MOBILE_BREAKPOINT, addLineClamp } from "../styles";
 import { Indicator, type IndicatorProps } from "./Indicator";
 
 // TODO - WIP

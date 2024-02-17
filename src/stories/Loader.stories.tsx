@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Loader, type LoaderProps } from "../components/Loader";
-import { SIZE_OPTIONS } from "../styles/theme";
+import { SIZE_OPTIONS } from "../styles";
 
 const defaults: LoaderProps = {
   color: "brand.0",

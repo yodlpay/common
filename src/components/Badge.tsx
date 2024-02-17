@@ -10,7 +10,7 @@ import {
   type MantineSize,
 } from "@mantine/core";
 import { forwardRef, type ReactNode } from "react";
-import { CUSTOM_COLORS } from "../styles/theme";
+import { CUSTOM_COLORS } from "../styles";
 
 const useStyles = createStyles((theme, { isActive, onClick }: BadgeProps) => ({
   badge: {
@@ -25,8 +25,8 @@ const useStyles = createStyles((theme, { isActive, onClick }: BadgeProps) => ({
       color: isActive
         ? theme.colors?.positive
         : theme.colorScheme === "light"
-          ? CUSTOM_COLORS.positiveLightInactive
-          : CUSTOM_COLORS.positiveDarkInactive,
+        ? CUSTOM_COLORS.positiveLightInactive
+        : CUSTOM_COLORS.positiveDarkInactive,
     }),
     "& .mantine-Badge-leftSection": {
       display: "flex",

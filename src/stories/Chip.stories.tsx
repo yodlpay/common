@@ -1,6 +1,6 @@
 import { useArgs } from "@storybook/preview-api";
 import type { Meta, StoryObj } from "@storybook/react";
-import { SIZE_OPTIONS } from "../styles/theme";
+import { SIZE_OPTIONS } from "../styles";
 import { Chip, type ChipProps } from "../components/Chip";
 
 const defaults = {

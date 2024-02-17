@@ -51,7 +51,7 @@ import {
   TOKEN_DECIMALS,
   YODL_URL,
 } from "../constants";
-import { Decimal } from "../lib/decimal";
+import { Decimal } from "../lib";
 import type {
   Account,
   CoinConfig,

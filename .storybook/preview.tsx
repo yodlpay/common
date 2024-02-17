@@ -1,6 +1,6 @@
 import { MantineProvider } from "@mantine/core";
 import React from "react";
-import { theme } from "../src/styles/theme";
+import { theme } from "../src/styles";
 
 function ColorSchemeWrapper({ children }: { children: React.ReactNode }) {
   return <>{children}</>;

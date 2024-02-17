@@ -13,7 +13,7 @@ import {
 } from "@mantine/core";
 import { type ScrollAreaComponent } from "@mantine/core/lib/Modal/Modal.context";
 import { type ReactNode } from "react";
-import { MOBILE_BREAKPOINT } from "../styles/theme";
+import { MOBILE_BREAKPOINT } from "../styles";
 
 const useStyles = createStyles((theme) => ({
   modalOverlay: {

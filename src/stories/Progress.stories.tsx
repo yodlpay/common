@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Progress, type ProgressProps } from "../components/Progress";
-import { SIZE_OPTIONS } from "../styles/theme";
+import { SIZE_OPTIONS } from "../styles";
 
 const defaults: ProgressProps = {
   color: "brand.0",

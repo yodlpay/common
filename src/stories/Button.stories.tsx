@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { Button } from "../components/Button";
 import { Ethereum, Polygon } from "react-web3-icons";
-import { SIZE_OPTIONS } from "../styles/theme";
+import { SIZE_OPTIONS } from "../styles";
 import { type Variants } from "@mantine/core";
 
 const defaults = {
