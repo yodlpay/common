@@ -21,6 +21,8 @@ const useStyles = createStyles((theme) => ({
   },
   modalInner: {
     zIndex: 15,
+    paddingLeft: 0,
+    paddingRight: 0,
     [theme.fn.smallerThan(MOBILE_BREAKPOINT)]: {
       padding: rem(6),
     },
