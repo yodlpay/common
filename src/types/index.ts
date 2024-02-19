@@ -650,3 +650,8 @@ export type EnvData = {
   rpcUrl: string;
   dataApiUrl: string;
 };
+
+export type StrippedConnector = {
+  id: string;
+  name: string;
+};

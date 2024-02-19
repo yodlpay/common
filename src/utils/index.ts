@@ -61,7 +61,13 @@ import type {
   FormatAmountParams,
   Link,
 } from "../types";
-import { LinkConfig, TokenBalance, TokenData, type FormState } from "../types";
+import {
+  LinkConfig,
+  SwapVenue,
+  TokenBalance,
+  TokenData,
+  type FormState,
+} from "../types";
 
 const DEFAULT_REDIRECT = "/";
 
@@ -1242,4 +1248,21 @@ export const formatPaymentAmount = ({
         isFiatOrStablecoin
       )
     : formatter.format(ceiledAmount);
+};
+
+export const parseExcludedVenues = (searchParams: URLSearchParams) => {
+  const excludedVenuesString = searchParams.get("excluded_venues");
+  return !!excludedVenuesString
+    ? (excludedVenuesString
+        .split(",")
+        .map((excludedVenue) => excludedVenue.toUpperCase())
+        .filter((excludedVenue) => excludedVenue in SwapVenue) as SwapVenue[])
+    : [];
+};
+
+export const getTxUrl = (chain: Chain | null, txHash: string | undefined) => {
+  if (!chain?.id || !chain?.blockExplorers?.default.url || !txHash) return "";
+  // Use ChainInfo instead of Chain because we have selected specific explorers
+  const chainInfo = getChain(chain?.id);
+  return `${chainInfo.explorerUrl}/tx/${txHash}`;
 };

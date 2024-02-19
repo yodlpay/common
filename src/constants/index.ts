@@ -6,8 +6,12 @@ import {
   tokenlist,
 } from "@yodlpay/tokenlists";
 import { Address, toHex } from "viem";
+import coinbasewallet from "../assets/images/wallets/coinbasewallet.svg";
+import metamask from "../assets/images/wallets/metamask.svg";
+import rainbow from "../assets/images/wallets/rainbow.svg";
+import walletconnect from "../assets/images/wallets/walletconnect.svg";
+import { PointEventType, StrippedConnector } from "../types";
 import usdtABI from "../usdt.abi.json";
-import { PointEventType } from "../types";
 
 export const DISCORD = "https://discord.gg/tKHvxh384Y";
 export const TWITTER = "https://twitter.com/yodlpay";
@@ -324,3 +328,22 @@ export const AVERAGE_FINALITY_DURATION: Record<number, string> = {
   100: "5 minutes", // same as ETH but 3x faster block times
   5: "15 minutes",
 };
+
+import { Connector } from "wagmi";
+
+export const ICONS: { [key: string]: string } = {
+  metamask: metamask.src,
+  walletconnect: walletconnect.src,
+  coinbasewallet: coinbasewallet.src,
+  rainbow: rainbow.src,
+};
+
+export function connectorWalletIcon(
+  connector: Connector | StrippedConnector
+): string | undefined {
+  return ICONS[connector.id.toLocaleLowerCase()];
+}
+
+export function walletIcon(id: string): string | undefined {
+  return ICONS[id];
+}
