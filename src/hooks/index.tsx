@@ -1,6 +1,5 @@
 import { ColorScheme, MantineThemeOverride } from "@mantine/core";
 import { getChain } from "@yodlpay/tokenlists";
-import { useParams, usePathname } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { useFormContext } from "react-hook-form";
 import { Flex, Tooltip } from "../components";
@@ -296,11 +295,11 @@ export const useLinkTypeAction = (): LinkTypeAction => {
   // const params = useParams();
   // const location = useLocation();
 
-  const params = useParams<{ handle?: string; subhandle?: string }>();
-  const pathname = usePathname();
+  const params = new URLSearchParams(document.location.search);
+  const pathname = window.location.pathname;
 
-  const parentHandle = params?.handle ?? null;
-  const descendantHandle = params?.subhandle ?? null;
+  const parentHandle = params?.get("handle") ?? null;
+  const descendantHandle = params?.get("subhandle") ?? null;
   const isEdit = pathname.includes("edit");
 
   if (isEdit) {
