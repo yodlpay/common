@@ -414,10 +414,6 @@ export type SelectProps = {
    */
   data: readonly (string | MantineSelectItem)[];
   /**
-   * Dropdown change callback
-   */
-  callback?: (value: string | null) => void;
-  /**
    * Dropdown name attribute (used with forms)
    */
   name?: string;
@@ -451,7 +447,6 @@ export const Select = forwardRef(
       size = "md",
       radius = "md",
       onChange = () => null,
-      callback = () => null,
       useController = false,
       isLoading = false,
       hideText = false,

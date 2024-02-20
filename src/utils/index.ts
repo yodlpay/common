@@ -123,6 +123,8 @@ export function useMatchesData(id: string): Account | undefined {
   // ) as { data: { account?: Account } };
   // return route?.data?.account;
 
+  console.log("id", id);
+
   return undefined;
 }
 
@@ -259,56 +261,6 @@ export const stringifyBigInt = (obj: any) =>
     obj,
     (_, value) => (typeof value === "bigint" ? value.toString() : value) // return everything else unchanged
   );
-
-export const getPublicClientForChainEnvAware = (chain: Chain) => {
-  const testnetMode =
-    process.env.NEXT_PUBLIC_TESTNET_MODE === "true" ||
-    process.env.TEST === "true";
-
-  return getPublicClientForChain(chain, testnetMode);
-};
-
-export const getPublicClientForChain = (
-  chain: Chain,
-  testnetMode: boolean,
-  useInfura: boolean = true
-) => {
-  // Handle testnet mode
-  if (testnetMode) {
-    const url = !!process.env.NEXT_PUBLIC_RPC_URL
-      ? process.env.NEXT_PUBLIC_RPC_URL
-      : LOCAL_RPC_URL;
-    return createPublicClient({
-      chain,
-      transport: http(url),
-    });
-  }
-
-  // Check for infura
-  if (
-    useInfura &&
-    !!process.env.INFURA_KEY &&
-    chain.rpcUrls.infura &&
-    chain.rpcUrls.infura.http.length > 0
-  ) {
-    return createPublicClient({
-      chain,
-      transport: http(
-        `${chain.rpcUrls.infura.http[0]}/${process.env.INFURA_KEY}`
-      ),
-    });
-  } else if (`${chain.name.toUpperCase()}_RPC_URL` in process.env) {
-    return createPublicClient({
-      chain,
-      transport: http(process.env[`${chain.name.toUpperCase()}_RPC_URL`]),
-    });
-  } else {
-    return createPublicClient({
-      chain,
-      transport: http(chain.rpcUrls.default.http[0]),
-    });
-  }
-};
 
 export function coinSelected(link: Link, coinId: string): boolean {
   const [symbol, chainId] = coinId.split("-");
@@ -661,7 +613,9 @@ export const fetchIntercept = (
       } else if (input instanceof URL) {
         url = input;
       }
-    } catch (err) {}
+    } catch (err) {
+      console.log("err", err);
+    }
 
     if (!!url && RPC_URLS.some((rpc_url) => url?.host.includes(rpc_url))) {
       let identifier = url.host;
@@ -706,16 +660,6 @@ export const formatRelativeTimestamp = (
 
 export const formatExactTimestamp = (timestamp: Date | string) => {
   return format(new Date(new Date(timestamp)), "yyyy-MM-dd HH:mm");
-};
-
-export const getTestDetails = () => {
-  return {
-    isTest: process.env.NEXT_PUBLIC_IS_TEST == "true",
-    testnetMode: process.env.NEXT_PUBLIC_TESTNET_MODE == "true",
-    rpcUrl: process.env.NEXT_PUBLIC_RPC_URL
-      ? process.env.NEXT_PUBLIC_RPC_URL
-      : LOCAL_RPC_URL,
-  };
 };
 
 export const getHomeLink = (link: Link, parentLink?: Link | null) => {
@@ -858,9 +802,17 @@ export const generateWagmiConfig = ({
   return wagmiConfig;
 };
 
-export const defaultWagmiConfig = () => {
-  const { isTest, testnetMode, rpcUrl } = getTestDetails();
+type DefaultWagmiConfigParams = {
+  isTest: boolean;
+  testnetMode: boolean;
+  rpcUrl: string;
+};
 
+export const defaultWagmiConfig = ({
+  isTest,
+  testnetMode,
+  rpcUrl,
+}: DefaultWagmiConfigParams) => {
   const wagmiConfig = generateWagmiConfig({
     isTest,
     testnetMode,

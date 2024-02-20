@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Flex, type FlexProps } from "../components/Flex";
-import { Button } from "../components/Button";
 import { createStyles } from "@mantine/core";
+import type { Meta, StoryObj } from "@storybook/react";
+import { Button } from "../components/Button";
+import { Flex, type FlexProps } from "../components/Flex";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   flex: {
     height: "150px",
   },

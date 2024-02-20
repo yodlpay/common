@@ -1,10 +1,9 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import { CheckBadgeIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 import { createStyles } from "@mantine/core";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Ethereum, MetaMask, Shib } from "react-web3-icons";
-import { MINIMAL_SIZE_OPTIONS } from "../styles";
 import { NavLink, type NavLinkProps } from "../components/NavLink";
+import { MINIMAL_SIZE_OPTIONS } from "../styles";
 
 const useStyles = createStyles((theme) => ({
   chevronIcon: {

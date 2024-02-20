@@ -3,13 +3,13 @@ import {
   type Embla,
   type CarouselProps as MantineCarouselProps,
 } from "@mantine/carousel";
-import { useRef, type ReactNode, useState } from "react";
-import Autoplay from "embla-carousel-autoplay";
 import { createStyles } from "@mantine/core";
+import Autoplay from "embla-carousel-autoplay";
+import { useRef, useState, type ReactNode } from "react";
 
 const SLIDE_IDENTIFIER = "slide";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   activeSlide: {
     opacity: 1,
     transition: "opacity 300ms ease",

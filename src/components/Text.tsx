@@ -1,16 +1,16 @@
 import {
   Text as MantineText,
+  createPolymorphicComponent,
   createStyles,
   type DefaultMantineColor,
   type MantineGradient,
   type TextProps as MantineTextProps,
   type Variants,
-  createPolymorphicComponent,
 } from "@mantine/core";
 import { forwardRef, type ReactNode } from "react";
 import { Flex } from "./Flex";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   text: {
     display: "inline-flex",
     alignItems: "center",

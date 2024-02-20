@@ -1,7 +1,7 @@
 import { clsx, createStyles } from "@mantine/core";
 import { Flex } from "./Flex";
 
-const useStyles = createStyles((theme) => ({
+const useStyles = createStyles(() => ({
   emoji: {},
 }));
 
