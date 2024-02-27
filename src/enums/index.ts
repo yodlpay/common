@@ -1,15 +1,3 @@
-export enum RudderStackNodeEvents {
-  LogIn = "LogIn",
-  SignUp = "SignUp",
-  SublinkCreated = "SublinkCreated",
-  SublinkDeleted = "SublinkDeleted",
-  SublinkUpdated = "SublinkUpdated",
-  LinkCreated = "LinkCreated",
-  LinkDeleted = "LinkDeleted",
-  LinkUpdated = "LinkUpdated",
-  PaymentReceived = "PaymentReceived",
-}
-
 export enum RudderStackJSEvents {
   // link creation flow
   AddressEntered = "AddressEntered",

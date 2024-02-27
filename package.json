@@ -1,6 +1,6 @@
 {
   "name": "@hiropay/common",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Commons shared between Yodl frontend and Yodl plugin.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
