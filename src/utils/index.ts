@@ -45,12 +45,12 @@ import {
   MIN_RAW_BALANCE,
   NATIVE_TOKEN_ADDRESS,
   PAYMENT_LINK_CURRENCIES,
-  PaymentLinkAction,
   RPC_URLS,
   THEME_COLOR_SCHEME,
   TOKEN_DECIMALS,
   YODL_URL,
 } from "../constants";
+import { PaymentLinkAction } from "../enums";
 import { Decimal } from "../lib";
 import type {
   Account,
