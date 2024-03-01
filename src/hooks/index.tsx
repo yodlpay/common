@@ -1,3 +1,5 @@
+"use client";
+
 import { ColorScheme, MantineThemeOverride } from "@mantine/core";
 import { getChain } from "@yodlpay/tokenlists";
 import { useEffect, useMemo, useState } from "react";

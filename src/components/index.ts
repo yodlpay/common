@@ -1,3 +1,5 @@
+"use client";
+
 export { Accordion } from "./Accordion";
 export { ActionIcon } from "./ActionIcon";
 export { Avatar } from "./Avatar";

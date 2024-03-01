@@ -1,3 +1,5 @@
+"use client";
+
 import AggregatorV3Interface from "@chainlink/contracts/abi/v0.8/AggregatorV3Interface.json";
 import { type ColorScheme } from "@mantine/core";
 import { getDefaultConfig, getDefaultWallets } from "@rainbow-me/rainbowkit";
