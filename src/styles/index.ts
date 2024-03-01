@@ -10,8 +10,8 @@ import {
   type MantineThemeOverride,
   type Tuple,
 } from "@mantine/core";
+import { DeepPartial } from "react-hook-form";
 import { THEME_COLOR_SCHEME } from "../constants";
-import type { DeepPartial } from "../types";
 
 type Color =
   | DeepPartial<
@@ -27,7 +27,7 @@ type Color =
           string,
           string,
           string,
-          string,
+          string
         ]
       >
     >

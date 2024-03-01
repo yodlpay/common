@@ -14,8 +14,8 @@ import {
 import {
   Payment,
   PaymentState,
-  type FormState,
   type FormattedPayment,
+  type LinkFormState,
   type LinkTypeAction,
 } from "../types";
 import {
@@ -73,7 +73,7 @@ export const useConsolidatedData = (shouldCalculate = false) => {
       return null;
     }
 
-    return consolidateLinkFormData(values as FormState);
+    return consolidateLinkFormData(values as LinkFormState);
   }, [values, shouldCalculate]);
 };
 

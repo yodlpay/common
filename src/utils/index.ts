@@ -66,7 +66,7 @@ import {
   SwapVenue,
   TokenBalance,
   TokenData,
-  type FormState,
+  type LinkFormState,
 } from "../types";
 
 const DEFAULT_REDIRECT = "/";
@@ -486,7 +486,7 @@ export const convertDataToTokenList = (
 };
 
 export const consolidateLinkFormData = (
-  values: FormState
+  values: LinkFormState
 ): ConsolidatedLinkForm => {
   // Iterate over networks to create the coins array
   const coinConfigArray = Object.entries(
