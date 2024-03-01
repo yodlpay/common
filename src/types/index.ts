@@ -155,7 +155,7 @@ export type TokenData = {
   address: string;
 };
 
-export type FormState = {
+export type LinkFormState = {
   linkHandle: string;
   defaultAddress: string;
   networks: Networks;
@@ -468,11 +468,6 @@ export type ExchangeRates = {
 
 export type ExtendedMantineSize = number | "xs" | "sm" | "md" | "lg" | "xl";
 
-export type DeepPartial<T> = T extends object
-  ? {
-      [P in keyof T]?: DeepPartial<T[P]>;
-    }
-  : T;
 export type CurveSwapRoute = {
   poolId: string;
   poolAddress: string;
