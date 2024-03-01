@@ -13,9 +13,7 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "@typescript-eslint/no-unused-vars": [
       "warn",
@@ -30,8 +28,5 @@
     "@typescript-eslint/ban-types": "off",
     "@typescript-eslint/no-explicit-any": "off"
   },
-  "ignorePatterns": [
-    "node_modules",
-    "dist"
-  ]
+  "ignorePatterns": ["node_modules", "dist"]
 }
