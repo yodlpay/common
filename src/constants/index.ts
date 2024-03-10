@@ -96,6 +96,8 @@ export const NATIVE_TOKEN_ADDRESS =
 
 export const LOCAL_RPC_URL = "http://localhost:8545";
 
+export const LOCAL_DATA_API_URL = "http://localhost:3003";
+
 export const THEME_COLOR_SCHEME = "light";
 
 export const CURRENCIES = {
