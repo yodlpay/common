@@ -9,37 +9,37 @@ import {
   type SelectItem,
   type TransitionProps,
   type Variants,
-} from "@mantine/core";
+} from '@mantine/core'
 import {
   forwardRef,
   type ButtonHTMLAttributes,
   type DetailedHTMLProps,
   type FC,
   type ReactNode,
-} from "react";
-import { Controller, useFormContext } from "react-hook-form";
-import darkSpinner from "../assets/images/spinner_dark.svg";
-import lightSpinner from "../assets/images/spinner_light.svg";
-import { type ExtendedMantineSize } from "../types";
-import { Avatar } from "./Avatar";
-import { Flex } from "./Flex";
-import { Text } from "./Text";
+} from 'react'
+import { Controller, useFormContext } from 'react-hook-form'
+import darkSpinner from '../assets/images/spinner_dark.svg'
+import lightSpinner from '../assets/images/spinner_light.svg'
+import { type ExtendedMantineSize } from '../types'
+import { Avatar } from './Avatar'
+import { Flex } from './Flex'
+import { Text } from './Text'
 
 const imageSizes = {
   xs: 14,
   sm: 20,
   md: 30,
-} as Record<ExtendedMantineSize, number>;
+} as Record<ExtendedMantineSize, number>
 
 type StylesProps = {
-  containsImage: boolean;
-  isLoading: boolean;
-  imageUri: string;
-  size: ExtendedMantineSize;
-  radius: MantineNumberSize;
-  variant: Variants<"unstyled" | "default" | "filled">;
-  hideText: boolean;
-};
+  containsImage: boolean
+  isLoading: boolean
+  imageUri: string
+  size: ExtendedMantineSize
+  radius: MantineNumberSize
+  variant: Variants<'unstyled' | 'default' | 'filled'>
+  hideText: boolean
+}
 
 const useStyles = createStyles(
   (
@@ -52,86 +52,86 @@ const useStyles = createStyles(
       radius,
       variant,
       hideText,
-    }: StylesProps
+    }: StylesProps,
   ) => ({
     selectWrapper: {
       ...(containsImage && {
-        "&::before": {
+        '&::before': {
           content: '""',
-          display: "block",
+          display: 'block',
           width: `${imageSizes[SIZE_MAPPER[size]]}px`,
           height: `${imageSizes[SIZE_MAPPER[size]]}px`,
           backgroundImage: `url(${
             isLoading
-              ? theme.colorScheme === "dark"
+              ? theme.colorScheme === 'dark'
                 ? lightSpinner.src
                 : darkSpinner.src
               : imageUri
           })`,
-          backgroundSize: "contain",
-          backgroundRepeat: "no-repeat",
-          backgroundPosition: "center",
-          position: "absolute",
-          left: "6px",
-          top: "50%",
-          transform: "translateY(-50%)",
-          pointerEvents: "none",
+          backgroundSize: 'contain',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          position: 'absolute',
+          left: '6px',
+          top: '50%',
+          transform: 'translateY(-50%)',
+          pointerEvents: 'none',
         },
       }),
     },
     selectDropdown: {
-      borderRadius: "14px",
+      borderRadius: '14px',
       background: theme.colors?.level?.[1],
       border: `1px solid ${theme.colors?.level?.[2]}`,
-      overflow: "hidden",
+      overflow: 'hidden',
     },
     selectInput: {
       color: theme.colors?.primary?.[0],
-      ...(variant === "unstyled" && { border: "none" }),
-      ...(variant === "unstyled" && { background: "transparent !important" }),
-      ...(hideText && { fontSize: "0px !important" }),
+      ...(variant === 'unstyled' && { border: 'none' }),
+      ...(variant === 'unstyled' && { background: 'transparent !important' }),
+      ...(hideText && { fontSize: '0px !important' }),
       borderRadius: theme.radius[radius as keyof typeof theme.radius],
       paddingLeft: containsImage
         ? `${imageSizes[SIZE_MAPPER[size]] + 16}px`
-        : "",
+        : '',
     },
     selectItem: {
       color: theme.colors?.primary?.[0],
       borderRadius: theme.radius.lg,
-      "&[data-hovered]": {
+      '&[data-hovered]': {
         background: theme.colors?.level?.[2],
       },
-      "&[data-selected]": {
+      '&[data-selected]': {
         background: theme.colors?.brand?.[0],
-        "&:hover": {
+        '&:hover': {
           background: theme.colors?.brand?.[0],
         },
       },
     },
     rightSection: {
       ...(containsImage && {
-        width: "26px",
+        width: '26px',
         stroke: theme.colors?.subtle?.[0],
-        strokeWidth: "0.4px",
+        strokeWidth: '0.4px',
       }),
     },
-  })
-);
+  }),
+)
 
 const SIZE_MAPPER = {
-  xs: "xs",
-  sm: "xs",
-  md: "sm",
-  lg: "sm",
-  xl: "md",
-} as Record<ExtendedMantineSize, ExtendedMantineSize>;
+  xs: 'xs',
+  sm: 'xs',
+  md: 'sm',
+  lg: 'sm',
+  xl: 'md',
+} as Record<ExtendedMantineSize, ExtendedMantineSize>
 
 type SelectItemProps = {
-  image?: string;
-  label?: string;
-  description?: string;
-  size: ExtendedMantineSize;
-};
+  image?: string
+  label?: string
+  description?: string
+  size: ExtendedMantineSize
+}
 
 const SelectItem = ({
   image,
@@ -154,13 +154,13 @@ const SelectItem = ({
       </div>
     </Flex>
   </div>
-);
+)
 
 export type SelectProps = {
   /**
    * Dropdown should allow deselect
    */
-  allowDeselect?: boolean;
+  allowDeselect?: boolean
   /**
    * Dropdown props added to clear button
    */
@@ -169,271 +169,271 @@ export type SelectProps = {
       ButtonHTMLAttributes<HTMLButtonElement>,
       HTMLButtonElement
     >,
-    "key"
-  >;
+    'key'
+  >
   /**
    * Dropdown is clearable
    */
-  clearable?: boolean;
+  clearable?: boolean
   /**
    * Dropdown should allow creatable option
    */
-  creatable?: boolean;
+  creatable?: boolean
   /**
    * Dropdown input description
    */
-  description?: ReactNode;
+  description?: ReactNode
   /**
    * Dropdown props added to description element
    */
-  descriptionProps?: Record<string, any>;
+  descriptionProps?: Record<string, any>
   /**
    * Dropdown disabled state
    */
-  disabled?: boolean;
+  disabled?: boolean
   /**
    * Dropdown component
    */
-  dropdownComponent?: ReactNode;
+  dropdownComponent?: ReactNode
   /**
    * Dropdown position
    */
-  dropdownPosition?: "bottom" | "top" | "flip";
+  dropdownPosition?: 'bottom' | 'top' | 'flip'
   /**
    * Dropdown error message
    */
-  error?: ReactNode;
+  error?: ReactNode
   /**
    * Dropdown props added to error
    */
-  errorProps?: Record<string, any>;
+  errorProps?: Record<string, any>
   /**
    * Dropdown filter function
    */
-  filter?: (value: string, item: SelectItem) => boolean;
+  filter?: (value: string, item: SelectItem) => boolean
   /**
    * Dropdown should filter on exact match
    */
-  filterDataOnExactSearchMatch?: boolean;
+  filterDataOnExactSearchMatch?: boolean
   /**
    * Dropdown function to create label
    */
-  getCreateLabel?: (query: string) => ReactNode;
+  getCreateLabel?: (query: string) => ReactNode
   /**
    * Dropdown should hover on first result when search changes
    */
-  hoverOnSearchChange?: boolean;
+  hoverOnSearchChange?: boolean
 
   /**
    * Dropdown should add icon on the left side of input
    */
-  icon?: ReactNode;
+  icon?: ReactNode
 
   /**
    * Dropdown idth of icon section
    */
-  iconWidth?: string | number;
+  iconWidth?: string | number
 
   /**
    * Initial dropdown opened state
    */
-  initiallyOpened?: boolean;
+  initiallyOpened?: boolean
 
   /**
    * Input container component, defaults to React.Fragment
    */
-  inputContainer?: (children: ReactNode) => ReactNode;
+  inputContainer?: (children: ReactNode) => ReactNode
 
   /**
    * Dropdown order of the Input.Wrapper elements
    */
-  inputWrapperOrder?: ("input" | "label" | "error" | "description")[];
+  inputWrapperOrder?: ('input' | 'label' | 'error' | 'description')[]
 
   /**
    * Dropdown change item renderer
    */
-  itemComponent?: FC<any>;
+  itemComponent?: FC<any>
 
   /**
    * Input label, displayed before input
    */
-  label?: ReactNode;
+  label?: ReactNode
 
   /**
    * Props spread to label element
    */
-  labelProps?: Record<string, any>;
+  labelProps?: Record<string, any>
 
   /**
    * Limit amount of items displayed at a time for searchable select
    */
-  limit?: number;
+  limit?: number
 
   /**
    * Maximum dropdown height
    */
-  maxDropdownHeight?: number;
+  maxDropdownHeight?: number
 
   /**
    * Nothing found label
    */
-  nothingFound?: ReactNode;
+  nothingFound?: ReactNode
 
   /**
    * Select onChange handler
    */
-  onChange?: (value: string) => void;
+  onChange?: (value: string) => void
 
   /**
    * Called when create option is selected
    */
-  onCreate?: (query: string) => string | SelectItem;
+  onCreate?: (query: string) => string | SelectItem
 
   /**
    * Called when dropdown is closed
    */
-  onDropdownClose?: () => void;
+  onDropdownClose?: () => void
 
   /**
    * Called when dropdown is opened
    */
-  onDropdownOpen?: () => void;
+  onDropdownOpen?: () => void
 
   /**
    * Called each time search value changes
    */
-  onSearchChange?: (query: string) => void;
+  onSearchChange?: (query: string) => void
 
   /**
    * Props to pass down to the portal when withinPortal is true
    */
-  portalProps?: Omit<PortalProps, "children" | "withinPortal">;
+  portalProps?: Omit<PortalProps, 'children' | 'withinPortal'>
 
   /**
    * useEffect dependencies to force update dropdown position
    */
-  positionDependencies?: any[];
+  positionDependencies?: any[]
 
   /**
    * Key of theme.radius or any valid CSS value to set border-radius, theme.defaultRadius by default
    */
-  radius?: number | "xs" | "sm" | "md" | "lg" | "xl";
+  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
   /**
    * Adds required attribute to the input and red asterisk on the right side of label
    */
-  required?: boolean;
+  required?: boolean
 
   /**
    * Right section of input, similar to icon but on the right
    */
-  rightSection?: ReactNode;
+  rightSection?: ReactNode
 
   /**
    * Props spread to rightSection div element
    */
-  rightSectionProps?: Record<string, any>;
+  rightSectionProps?: Record<string, any>
 
   /**
    * Width of right section, is used to calculate input padding-right
    */
-  rightSectionWidth?: string | number;
+  rightSectionWidth?: string | number
 
   /**
    * Controlled search input value
    */
-  searchValue?: string;
+  searchValue?: string
 
   /**
    * Set to true to enable search
    */
-  searchable?: boolean;
+  searchable?: boolean
 
   /**
    * Select highlighted item on blur
    */
-  selectOnBlur?: boolean;
+  selectOnBlur?: boolean
 
   /**
    * Dropdown shadow from theme or any value to set box-shadow
    */
-  shadow?: MantineShadow;
+  shadow?: MantineShadow
 
   /**
    * Function to determine if create label should be displayed
    */
-  shouldCreate?: (query: string, data: SelectItem[]) => boolean;
+  shouldCreate?: (query: string, data: SelectItem[]) => boolean
 
   /**
    * Input size
    */
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
   /**
    * Dropdown should switch item order and keyboard navigation on dropdown position flip
    */
-  switchDirectionOnFlip?: boolean;
+  switchDirectionOnFlip?: boolean
 
   /**
    * Props added to Transition component that used to animate dropdown presence
    */
-  transitionProps?: Partial<Omit<TransitionProps, "mounted">>;
+  transitionProps?: Partial<Omit<TransitionProps, 'mounted'>>
 
   /**
    * Controlled input value
    */
-  value?: string;
+  value?: string
 
   /**
    * Defines input appearance
    */
-  variant?: Variants<"unstyled" | "default" | "filled">;
+  variant?: Variants<'unstyled' | 'default' | 'filled'>
 
   /**
    * Dropdown should asterisk be rendered
    */
-  withAsterisk?: boolean;
+  withAsterisk?: boolean
 
   /**
    * Dropdown should render in a Portal
    */
-  withinPortal?: boolean;
+  withinPortal?: boolean
 
   /**
    * Dropdown props added to root element
    */
-  wrapperProps?: Record<string, any>;
+  wrapperProps?: Record<string, any>
 
   /**
    * Dropdown z-index
    */
-  zIndex?: number;
+  zIndex?: number
 
   /**
    * Dropdown contents
    */
-  data: readonly (string | MantineSelectItem)[];
+  data: readonly (string | MantineSelectItem)[]
   /**
    * Dropdown name attribute (used with forms)
    */
-  name?: string;
+  name?: string
   /**
    * Dropdown should use Controller from react-hook-form
    */
-  useController?: boolean;
+  useController?: boolean
   /**
    * Dropdown is loading data (used with image)
    */
-  isLoading?: boolean;
+  isLoading?: boolean
   /**
    * Dropdown should hide input text
    */
-  hideText?: boolean;
+  hideText?: boolean
   /**
    * Select class name
    */
-  className?: string;
-} & MantineSelectProps;
+  className?: string
+} & MantineSelectProps
 /**
  * Dropdown component
  */
@@ -444,25 +444,24 @@ export const Select = forwardRef(
       value,
       data,
       className,
-      size = "md",
-      radius = "md",
+      size = 'md',
+      radius = 'md',
       onChange = () => null,
       useController = false,
       isLoading = false,
       hideText = false,
-      variant = "default",
+      variant = 'default',
       ...props
     }: SelectProps,
-    ref: React.Ref<HTMLInputElement>
+    ref: React.Ref<HTMLInputElement>,
   ) => {
-    const containsImage = typeof data?.[0] !== "string" && !!data?.[0]?.image;
+    const containsImage = typeof data?.[0] !== 'string' && !!data?.[0]?.image
     const selectedItem = data.find(
-      (item) => typeof item !== "string" && item?.value === value
-    );
-    const imageUri =
-      typeof selectedItem !== "string" ? selectedItem?.image : "";
+      (item) => typeof item !== 'string' && item?.value === value,
+    )
+    const imageUri = typeof selectedItem !== 'string' ? selectedItem?.image : ''
 
-    const context = useFormContext();
+    const context = useFormContext()
     const { classes } = useStyles({
       containsImage,
       isLoading,
@@ -471,7 +470,7 @@ export const Select = forwardRef(
       radius,
       variant,
       hideText,
-    });
+    })
 
     if (useController && name && context) {
       return (
@@ -509,7 +508,7 @@ export const Select = forwardRef(
             />
           )}
         />
-      );
+      )
     }
 
     return (
@@ -540,6 +539,6 @@ export const Select = forwardRef(
           rightSection: classes.rightSection,
         }}
       />
-    );
-  }
-);
+    )
+  },
+)

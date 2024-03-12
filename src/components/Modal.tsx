@@ -10,10 +10,10 @@ import {
   type PortalProps,
   type TransitionProps,
   rem,
-} from "@mantine/core";
-import { type ScrollAreaComponent } from "@mantine/core/lib/Modal/Modal.context";
-import { type ReactNode } from "react";
-import { MOBILE_BREAKPOINT } from "../styles";
+} from '@mantine/core'
+import { type ScrollAreaComponent } from '@mantine/core/lib/Modal/Modal.context'
+import { type ReactNode } from 'react'
+import { MOBILE_BREAKPOINT } from '../styles'
 
 const useStyles = createStyles((theme) => ({
   modalOverlay: {
@@ -29,146 +29,146 @@ const useStyles = createStyles((theme) => ({
   },
   modalContent: {
     borderRadius: theme.radius.xl,
-    maxWidth: "450px",
-    maxHeight: "660px",
-    height: "100%",
+    maxWidth: '450px',
+    maxHeight: '660px',
+    height: '100%',
     flexGrow: 1,
     background: theme.colors?.base?.[0],
     [theme.fn.smallerThan(MOBILE_BREAKPOINT)]: {
-      maxWidth: "100%",
+      maxWidth: '100%',
     },
   },
   modalBody: {
-    display: "flex",
-    flexDirection: "column",
-    overflowY: "hidden",
-    height: "100%",
+    display: 'flex',
+    flexDirection: 'column',
+    overflowY: 'hidden',
+    height: '100%',
     padding: 0,
   },
-}));
+}))
 
 export type ModalProps = {
   /**
    * Modal centered state
    */
-  centered?: boolean;
+  centered?: boolean
   /**
    * Modal props added to close button
    */
-  closeButtonProps?: ModalBaseCloseButtonProps;
+  closeButtonProps?: ModalBaseCloseButtonProps
   /**
    * Modal should close on click outside
    */
-  closeOnClickOutside?: boolean;
+  closeOnClickOutside?: boolean
   /**
    * Modal should close on escape press
    */
-  closeOnEscape?: boolean;
+  closeOnEscape?: boolean
   /**
    * Modal should take full screen
    */
-  fullScreen?: boolean;
+  fullScreen?: boolean
   /**
    * Modal id to connect modal/drawer with body and title
    */
-  id?: string;
+  id?: string
   /**
    * Modal should remain mounted when hidden
    */
-  keepMounted?: boolean;
+  keepMounted?: boolean
   /**
    * Modal should disable user scroll when open
    */
-  lockScroll?: boolean;
+  lockScroll?: boolean
   /**
    * Modal props added to Overlay component
    */
-  overlayProps?: ModalBaseOverlayProps;
+  overlayProps?: ModalBaseOverlayProps
   /**
    * Modal padding
    */
-  padding?: number | "xs" | "sm" | "md" | "lg" | "xl";
+  padding?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   /**
    * Modal props added to the portal (when withinPortal is true)
    */
-  portalProps?: Omit<PortalProps, "children" | "target" | "withinPortal">;
+  portalProps?: Omit<PortalProps, 'children' | 'target' | 'withinPortal'>
   /**
    * Modal size
    */
-  size?: MantineSize;
+  size?: MantineSize
   /**
    * Modal border radius
    */
-  radius?: MantineNumberSize;
+  radius?: MantineNumberSize
   /**
    * Modal should return focus to last active element on close
    */
-  returnFocus?: boolean;
+  returnFocus?: boolean
   /**
    * Modal scroll area component
    */
-  scrollAreaComponent?: ScrollAreaComponent;
+  scrollAreaComponent?: ScrollAreaComponent
   /**
    * Modal shadow (key of theme.shadows)
    */
-  shadow?: MantineShadow;
+  shadow?: MantineShadow
   /**
    * Modal target element
    */
-  target?: string | HTMLElement;
+  target?: string | HTMLElement
   /**
    * Modal title
    */
-  title?: ReactNode;
+  title?: ReactNode
   /**
    * Modal props added to Transition component
    */
-  transitionProps?: Partial<Omit<TransitionProps, "mounted">>;
+  transitionProps?: Partial<Omit<TransitionProps, 'mounted'>>
   /**
    * Modal should trap focus
    */
-  trapFocus?: boolean;
+  trapFocus?: boolean
   /**
    * Modal should render close button
    */
-  withCloseButton?: boolean;
+  withCloseButton?: boolean
   /**
    * Modal should render overlay
    */
-  withOverlay?: boolean;
+  withOverlay?: boolean
   /**
    * Modal should be rendered inside Portal
    */
-  withinPortal?: boolean;
+  withinPortal?: boolean
   /**
    * Modal left/right offset
    */
-  xOffset?: React.CSSProperties["marginLeft"];
+  xOffset?: React.CSSProperties['marginLeft']
   /**
    * Modal top/bottom offset
    */
-  yOffset?: React.CSSProperties["marginTop"];
+  yOffset?: React.CSSProperties['marginTop']
   /**
    * Modal zIndex
    */
-  zIndex?: number;
+  zIndex?: number
   /**
    * Modal visibility
    */
-  opened: boolean;
+  opened: boolean
   /**
    * Modal contents
    */
-  children: ReactNode;
+  children: ReactNode
   /**
    * Modal close handler
    */
-  onClose: () => void;
+  onClose: () => void
   /**
    * Modal class name
    */
-  className?: string;
-} & MantineModalProps;
+  className?: string
+} & MantineModalProps
 /**
  * Container for payment flow
  */
@@ -179,7 +179,7 @@ export const Modal = ({
   className,
   ...props
 }: ModalProps) => {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
 
   return (
     <MantineModal
@@ -196,5 +196,5 @@ export const Modal = ({
     >
       {children}
     </MantineModal>
-  );
-};
+  )
+}

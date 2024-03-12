@@ -5,60 +5,60 @@ import {
   type NavLinkProps as MantineNavLinkProps,
   type Variants,
   clsx,
-} from "@mantine/core";
-import { Flex } from "./Flex";
-import { Text } from "./Text";
-import { forwardRef, type ReactNode } from "react";
-import { MOBILE_BREAKPOINT, addLineClamp } from "../styles";
-import { Indicator, type IndicatorProps } from "./Indicator";
+} from '@mantine/core'
+import { Flex } from './Flex'
+import { Text } from './Text'
+import { forwardRef, type ReactNode } from 'react'
+import { MOBILE_BREAKPOINT, addLineClamp } from '../styles'
+import { Indicator, type IndicatorProps } from './Indicator'
 
 // TODO - WIP
 
 export const NAVLINK_PADDINGS = {
-  sm: "6px 8px",
-  md: "8px",
-  lg: "8px",
-};
+  sm: '6px 8px',
+  md: '8px',
+  lg: '8px',
+}
 
 export const NAVLINK_MOBILE_PADDINGS = {
-  sm: "6px 8px",
-  md: "8px",
-  lg: "8px",
-};
+  sm: '6px 8px',
+  md: '8px',
+  lg: '8px',
+}
 
 export const NAVLINK_HEIGHTS = {
-  sm: "54px",
-  md: "54px",
-  lg: "54px",
-};
+  sm: '54px',
+  md: '54px',
+  lg: '54px',
+}
 
 export const NAVLINK_FONT_SIZES = {
-  sm: "16px",
-  md: "16px",
-  lg: "16px",
-};
+  sm: '16px',
+  md: '16px',
+  lg: '16px',
+}
 
 export const NAVLINK_MOBILE_FONT_SIZES = {
-  sm: "16px",
-  md: "16px",
-  lg: "16px",
-};
+  sm: '16px',
+  md: '16px',
+  lg: '16px',
+}
 
 export const NAVLINK_MOBILE_FONT_WEIGHTS = {
   sm: 500,
   md: 400,
   lg: 400,
-};
+}
 
 const useStyles = createStyles(
   (theme, { withBorder, size, rightIcon }: NavLinkProps) => ({
     navLinkRoot: {
-      border: "1px solid",
+      border: '1px solid',
       borderRadius: theme.radius.xl,
-      borderColor: withBorder ? "rgba(100, 104, 107, 0.50)" : "transparent",
+      borderColor: withBorder ? 'rgba(100, 104, 107, 0.50)' : 'transparent',
       padding: NAVLINK_PADDINGS[size as keyof typeof NAVLINK_PADDINGS],
       height: NAVLINK_HEIGHTS[size as keyof typeof NAVLINK_HEIGHTS],
-      "&:hover": {
+      '&:hover': {
         background: theme.colors?.level?.[1],
       },
       [theme.fn.smallerThan(MOBILE_BREAKPOINT)]: {
@@ -88,115 +88,115 @@ const useStyles = createStyles(
       ...addLineClamp(),
     },
     navLinkRightSection: {
-      marginRight: !!rightIcon ? "16px" : "0",
+      marginRight: !!rightIcon ? '16px' : '0',
     },
-  })
-);
+  }),
+)
 
 export type NavLinkProps = {
   /**
    * NavLink active state
    */
-  active?: boolean;
+  active?: boolean
   /**
    * NavLink child links
    */
-  children?: ReactNode;
+  children?: ReactNode
   /**
    * NavLink children offset (key of theme.spacing)
    */
-  childrenOffset?: number | "xs" | "sm" | "md" | "lg" | "xl";
+  childrenOffset?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
   /**
    * NavLink color (key of theme.colors)
    */
-  color?: string;
+  color?: string
   /**
    * NavLink should be opened by default
    */
-  defaultOpened?: boolean;
+  defaultOpened?: boolean
   /**
    * NavLink secondary link description
    */
-  description?: ReactNode;
+  description?: ReactNode
   /**
    * NavLink should right section rotate when collapse is opened
    */
-  disableRightSectionRotation?: boolean;
+  disableRightSectionRotation?: boolean
   /**
    * NavLink disabled state
    */
-  disabled?: boolean;
+  disabled?: boolean
   /**
    * NavLink should display icon on the left side of the label
    */
-  icon?: ReactNode;
+  icon?: ReactNode
   /**
    * NavLink should display badge on the right side of the label
    */
-  badge?: ReactNode;
+  badge?: ReactNode
   /**
    * NavLink main link content
    */
-  label?: ReactNode;
+  label?: ReactNode
   /**
    * NavLink should label and description wrap on the next line
    */
-  noWrap?: boolean;
+  noWrap?: boolean
   /**
    * NavLink onChange handler
    */
-  onChange?: (opened: boolean) => void;
+  onChange?: (opened: boolean) => void
   /**
    * NavLink onClick handler
    */
-  onClick?: () => void;
+  onClick?: () => void
   /**
    * NavLink opened state
    */
-  opened?: boolean;
+  opened?: boolean
   /**
    * NavLink should secondary label be displayed on the right side of the component
    */
-  rightLabel?: ReactNode;
+  rightLabel?: ReactNode
   /**
    * NavLink should secondary description be displayed on the right side of the component
    */
-  rightDescription?: ReactNode;
+  rightDescription?: ReactNode
   /**
    * NavLink should icon be displayed on the right side of the label
    */
-  rightIcon?: ReactNode;
+  rightIcon?: ReactNode
   /**
    * NavLink variant
    */
-  variant?: Variants<"light" | "filled" | "subtle">;
+  variant?: Variants<'light' | 'filled' | 'subtle'>
   /**
    * NavLink should display border
    */
-  withBorder?: boolean;
+  withBorder?: boolean
   /**
    * NavLink should display indicator
    */
-  withIndicator?: boolean;
+  withIndicator?: boolean
   /**
    * NavLink indicator props
    */
-  indicatorProps?: Omit<IndicatorProps, "children">;
+  indicatorProps?: Omit<IndicatorProps, 'children'>
   /**
    * NavLink size
    */
-  size?: Omit<MantineSize, "xs" | "xl">;
+  size?: Omit<MantineSize, 'xs' | 'xl'>
   /**
    * NavLink class name
    */
-  className?: string;
-} & MantineNavLinkProps;
+  className?: string
+} & MantineNavLinkProps
 
 export const NavLink = forwardRef(
   (
     {
       icon,
-      size = "md",
+      size = 'md',
       withIndicator = false,
       className,
       rightLabel,
@@ -206,7 +206,7 @@ export const NavLink = forwardRef(
       indicatorProps,
       ...props
     }: NavLinkProps,
-    ref: React.Ref<HTMLButtonElement>
+    ref: React.Ref<HTMLButtonElement>,
   ) => {
     const { classes } = useStyles({
       ...props,
@@ -215,10 +215,10 @@ export const NavLink = forwardRef(
       rightDescription,
       rightIcon,
       rightSection,
-    });
+    })
 
-    let labelContent = props.label;
-    let rightSectionContent = null;
+    let labelContent = props.label
+    let rightSectionContent = null
 
     if (props.badge) {
       labelContent = (
@@ -226,7 +226,7 @@ export const NavLink = forwardRef(
           <Text className={classes.navLinkLabel}>{props.label}</Text>
           {props.badge}
         </Flex>
-      );
+      )
     }
 
     if (rightLabel || rightDescription || rightIcon) {
@@ -248,11 +248,11 @@ export const NavLink = forwardRef(
           ) : null}
           {rightIcon}
         </Flex>
-      );
+      )
     }
 
     if (rightSection) {
-      rightSectionContent = rightSection;
+      rightSectionContent = rightSection
     }
 
     return (
@@ -274,6 +274,6 @@ export const NavLink = forwardRef(
         }}
         ref={ref}
       />
-    );
-  }
-);
+    )
+  },
+)

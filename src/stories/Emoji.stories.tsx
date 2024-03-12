@@ -1,29 +1,29 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Emoji } from "../components/Emoji";
+import type { Meta, StoryObj } from '@storybook/react'
+import { Emoji } from '../components/Emoji'
 
 const defaults = {
-  symbol: "🐑",
-};
+  symbol: '🐑',
+}
 
 const meta = {
-  title: "Components/Emoji",
+  title: 'Components/Emoji',
   component: Emoji,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {},
-} satisfies Meta<typeof Emoji>;
+} satisfies Meta<typeof Emoji>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const WithLabel: Story = {
   args: {
     ...defaults,
-    label: "Sheep",
+    label: 'Sheep',
   },
-};
+}
 
 export const WithoutLabel: Story = {
   args: {
     ...defaults,
   },
-};
+}

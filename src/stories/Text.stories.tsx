@@ -1,90 +1,90 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Text, type TextProps } from "../components/Text";
-import { MetaMask } from "react-web3-icons";
-import { createStyles } from "@mantine/core";
+import type { Meta, StoryObj } from '@storybook/react'
+import { Text, type TextProps } from '../components/Text'
+import { MetaMask } from 'react-web3-icons'
+import { createStyles } from '@mantine/core'
 
 const useStyles = createStyles(() => ({
   leftIcon: {
-    marginRight: "12px",
+    marginRight: '12px',
   },
   rightIcon: {
-    marginLeft: "12px",
+    marginLeft: '12px',
   },
-}));
+}))
 
 const StyleProvider: React.FC<{
-  children: (classes: ReturnType<typeof useStyles>) => JSX.Element;
+  children: (classes: ReturnType<typeof useStyles>) => JSX.Element
 }> = ({ children }) => {
-  const classes = useStyles();
-  return children(classes);
-};
+  const classes = useStyles()
+  return children(classes)
+}
 
 const defaults: TextProps = {
-  align: "left",
-  color: "subtle.0",
+  align: 'left',
+  color: 'subtle.0',
   inherit: false,
   inline: false,
   italic: false,
-  size: "md",
+  size: 'md',
   span: false,
   strikethrough: false,
-  transform: "none",
+  transform: 'none',
   truncate: true,
   underline: false,
-  variant: "text" as "text" | "gradient",
+  variant: 'text' as 'text' | 'gradient',
   weight: 400,
-  children: "This is a sample text.",
-};
+  children: 'This is a sample text.',
+}
 
 const meta: Meta<TextProps> = {
-  title: "Components/Text",
+  title: 'Components/Text',
   component: Text,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     align: {
-      options: ["left", "right", "center", "justify"],
-      control: { type: "select" },
+      options: ['left', 'right', 'center', 'justify'],
+      control: { type: 'select' },
     },
     color: {
-      control: { type: "color" },
+      control: { type: 'color' },
     },
     size: {
-      options: ["xs", "sm", "md", "lg", "xl"],
-      control: { type: "select" },
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      control: { type: 'select' },
     },
     transform: {
-      options: ["none", "capitalize", "lowercase", "uppercase"],
-      control: { type: "select" },
+      options: ['none', 'capitalize', 'lowercase', 'uppercase'],
+      control: { type: 'select' },
     },
     variant: {
-      options: ["text", "gradient"],
-      control: { type: "select" },
+      options: ['text', 'gradient'],
+      control: { type: 'select' },
     },
     weight: {
-      control: { type: "number" },
+      control: { type: 'number' },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
 export const Default: StoryObj<TextProps> = {
   args: {
     ...defaults,
   },
-};
+}
 
 export const GradientText: StoryObj<TextProps> = {
   args: {
     ...defaults,
-    variant: "gradient",
+    variant: 'gradient',
     gradient: {
-      from: "cyan",
-      to: "blue",
+      from: 'cyan',
+      to: 'blue',
       deg: 45,
     },
   },
-};
+}
 
 export const TextWithLeftIcon: StoryObj<TextProps> = {
   args: {
@@ -95,7 +95,7 @@ export const TextWithLeftIcon: StoryObj<TextProps> = {
       </StyleProvider>
     ),
   },
-};
+}
 
 export const TextWithRightIcon: StoryObj<TextProps> = {
   args: {
@@ -106,7 +106,7 @@ export const TextWithRightIcon: StoryObj<TextProps> = {
       </StyleProvider>
     ),
   },
-};
+}
 
 export const TextWithBothIcons: StoryObj<TextProps> = {
   args: {
@@ -122,4 +122,4 @@ export const TextWithBothIcons: StoryObj<TextProps> = {
       </StyleProvider>
     ),
   },
-};
+}

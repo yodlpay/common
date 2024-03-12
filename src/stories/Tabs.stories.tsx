@@ -2,94 +2,94 @@ import {
   Cog8ToothIcon,
   InboxIcon,
   PhotoIcon,
-} from "@heroicons/react/24/outline";
-import type { Meta, StoryObj } from "@storybook/react";
-import { Tabs, type TabsProps } from "../components/Tabs";
+} from '@heroicons/react/24/outline'
+import type { Meta, StoryObj } from '@storybook/react'
+import { Tabs, type TabsProps } from '../components/Tabs'
 
 const defaults: TabsProps = {
-  color: "brand.0",
-  defaultValue: "gallery",
+  color: 'brand.0',
+  defaultValue: 'gallery',
   data: [
     {
-      value: "gallery",
+      value: 'gallery',
       tab: {
         icon: <PhotoIcon width="16px" />,
-        content: "Gallery",
+        content: 'Gallery',
       },
       panel: {
-        content: "Gallery tab content",
+        content: 'Gallery tab content',
       },
     },
     {
-      value: "messages",
+      value: 'messages',
       tab: {
         icon: <InboxIcon width="16px" />,
-        content: "Messages",
+        content: 'Messages',
       },
       panel: {
-        content: "Messages tab content",
+        content: 'Messages tab content',
       },
     },
     {
-      value: "settings",
+      value: 'settings',
       tab: {
         icon: <Cog8ToothIcon width="16px" />,
-        content: "Settings",
+        content: 'Settings',
       },
       panel: {
-        content: "Settings tab content",
+        content: 'Settings tab content',
       },
     },
   ],
-};
+}
 
 const meta: Meta<TabsProps> = {
-  title: "Components/Tabs",
+  title: 'Components/Tabs',
   component: Tabs,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
-    activateTabWithKeyboard: { control: { type: "boolean" } },
-    allowTabDeactivation: { control: { type: "boolean" } },
-    color: { control: { type: "color" } },
-    defaultValue: { control: { type: "text" } },
-    id: { control: { type: "text" } },
-    inverted: { control: { type: "boolean" } },
-    keepMounted: { control: { type: "boolean" } },
-    loop: { control: { type: "boolean" } },
+    activateTabWithKeyboard: { control: { type: 'boolean' } },
+    allowTabDeactivation: { control: { type: 'boolean' } },
+    color: { control: { type: 'color' } },
+    defaultValue: { control: { type: 'text' } },
+    id: { control: { type: 'text' } },
+    inverted: { control: { type: 'boolean' } },
+    keepMounted: { control: { type: 'boolean' } },
+    loop: { control: { type: 'boolean' } },
     orientation: {
-      options: ["horizontal", "vertical"],
-      control: { type: "select" },
+      options: ['horizontal', 'vertical'],
+      control: { type: 'select' },
     },
     placement: {
-      options: ["left", "right"],
-      control: { type: "select" },
+      options: ['left', 'right'],
+      control: { type: 'select' },
     },
     radius: {
-      options: ["xs", "sm", "md", "lg", "xl"],
-      control: { type: "select" },
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      control: { type: 'select' },
     },
-    value: { control: { type: "text" } },
+    value: { control: { type: 'text' } },
     variant: {
-      options: ["default", "pill"],
+      options: ['default', 'pill'],
       control: {
-        type: "select",
+        type: 'select',
       },
     },
   },
-};
+}
 
-export default meta;
+export default meta
 
 export const Default: StoryObj<TabsProps> = {
   args: defaults,
-};
+}
 
 export const Pill: StoryObj<TabsProps> = {
   args: {
     ...defaults,
-    variant: "pill",
+    variant: 'pill',
   },
-};
+}
 
 export const WithGrow: StoryObj<TabsProps> = {
   args: {
@@ -101,7 +101,7 @@ export const WithGrow: StoryObj<TabsProps> = {
       grow: true,
     },
   },
-};
+}
 
 export const CenteredTabs: StoryObj<TabsProps> = {
   args: {
@@ -110,22 +110,22 @@ export const CenteredTabs: StoryObj<TabsProps> = {
       ...item,
     })),
     listProps: {
-      position: "center",
+      position: 'center',
     },
   },
-};
+}
 
 export const VerticalOrientation: StoryObj<TabsProps> = {
   args: {
     ...defaults,
-    orientation: "vertical",
+    orientation: 'vertical',
   },
-};
+}
 
 export const WithRightPlacement: StoryObj<TabsProps> = {
   args: {
     ...defaults,
-    orientation: "vertical",
-    placement: "right",
+    orientation: 'vertical',
+    placement: 'right',
   },
-};
+}

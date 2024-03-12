@@ -1,9 +1,9 @@
-import { MantineProvider } from "@mantine/core";
-import React from "react";
-import { theme } from "../src/styles";
+import { MantineProvider } from '@mantine/core'
+import React from 'react'
+import { theme } from '../src/styles'
 
 function ColorSchemeWrapper({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return <>{children}</>
 }
 
 export const decorators = [
@@ -13,4 +13,4 @@ export const decorators = [
   (renderStory: any) => (
     <MantineProvider theme={theme}>{renderStory()}</MantineProvider>
   ),
-];
+]

@@ -1,25 +1,25 @@
-"use client";
+'use client'
 
-import { ColorScheme, MantineThemeOverride } from "@mantine/core";
-import { getChain } from "@yodlpay/tokenlists";
-import { useEffect, useMemo, useState } from "react";
-import { useFormContext } from "react-hook-form";
-import { Flex, Tooltip } from "../components";
-import { Text } from "../components/Text";
-import { CURRENCY_SYMBOL_SPECIAL_CASES } from "../constants";
+import { ColorScheme, MantineThemeOverride } from '@mantine/core'
+import { getChain } from '@yodlpay/tokenlists'
+import { useEffect, useMemo, useState } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { Flex, Tooltip } from '../components'
+import { Text } from '../components/Text'
+import { CURRENCY_SYMBOL_SPECIAL_CASES } from '../constants'
 import {
   COLOR_SCHEME,
   MOBILE_BREAKPOINT,
   MOBILE_HEADING_SIZES,
   theme,
-} from "../styles";
+} from '../styles'
 import {
   Payment,
   PaymentState,
   type FormattedPayment,
   type LinkFormState,
   type LinkTypeAction,
-} from "../types";
+} from '../types'
 import {
   consolidateLinkFormData,
   fetchToken,
@@ -28,75 +28,73 @@ import {
   formatUnitsDecimal,
   tokenAddressToToken,
   truncateTxHash,
-} from "../utils";
+} from '../utils'
 
 export const useCopyToClipboard = (
-  resetInterval = 2000
+  resetInterval = 2000,
 ): [boolean, (text: string) => Promise<boolean>] => {
-  const [isCopied, setIsCopied] = useState<boolean>(false);
+  const [isCopied, setIsCopied] = useState<boolean>(false)
 
   const copy = async (text: string) => {
     if (!navigator?.clipboard) {
       // logger.warn("Clipboard not supported");
-      return false;
+      return false
     }
 
     try {
-      await navigator.clipboard.writeText(text);
-      setIsCopied(true);
-      return true;
+      await navigator.clipboard.writeText(text)
+      setIsCopied(true)
+      return true
     } catch (error) {
       // logger.error("Copy failed", error);
-      setIsCopied(false);
-      return false;
+      setIsCopied(false)
+      return false
     }
-  };
+  }
 
   useEffect(() => {
-    let timeout: NodeJS.Timeout;
+    let timeout: NodeJS.Timeout
     if (isCopied && resetInterval) {
-      timeout = setTimeout(() => setIsCopied(false), resetInterval);
+      timeout = setTimeout(() => setIsCopied(false), resetInterval)
     }
     return () => {
-      clearTimeout(timeout);
-    };
-  }, [isCopied, resetInterval]);
+      clearTimeout(timeout)
+    }
+  }, [isCopied, resetInterval])
 
-  return [isCopied, copy];
-};
+  return [isCopied, copy]
+}
 
 export const useConsolidatedData = (shouldCalculate = false) => {
-  const context = useFormContext();
+  const context = useFormContext()
 
-  const values = context?.watch();
+  const values = context?.watch()
 
   return useMemo(() => {
     if (!shouldCalculate || !values) {
-      return null;
+      return null
     }
 
-    return consolidateLinkFormData(values as LinkFormState);
-  }, [values, shouldCalculate]);
-};
+    return consolidateLinkFormData(values as LinkFormState)
+  }, [values, shouldCalculate])
+}
 
 export const useFormattedPayments = (page: number) => {
   const [formattedPayments, setFormattedPayments] = useState<
     FormattedPayment[] | null
-  >(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [error, setError] = useState<Error | null>(null);
+  >(null)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+  const [error, setError] = useState<Error | null>(null)
 
   const fetchFormattedPayments = async () => {
     try {
-      const res = await fetch(`/payments/${page}`);
+      const res = await fetch(`/payments/${page}`)
       if (!res.ok) {
-        throw new Error(
-          `Failed to get payments with status code ${res.status}`
-        );
+        throw new Error(`Failed to get payments with status code ${res.status}`)
       }
       const { payments } = (await res.json()) as {
-        payments: (Payment & { timestamp: string })[];
-      };
+        payments: (Payment & { timestamp: string })[]
+      }
 
       const sentTokensUsed = await Promise.all(
         payments
@@ -111,40 +109,40 @@ export const useFormattedPayments = (page: number) => {
                 self.findIndex(
                   (item) =>
                     item.address?.toLowerCase() ===
-                    tokenDetails.address!.toLowerCase()
-                )
+                    tokenDetails.address!.toLowerCase(),
+                ),
           )
           .map(async (tokenDetails) => {
             let swapTokenDetails = tokenAddressToToken(
               tokenDetails.address!,
-              tokenDetails.chainId
+              tokenDetails.chainId,
             ) as {
-              symbol: string;
-              currency?: string;
-              decimals: number;
-              address: string;
-            };
+              symbol: string
+              currency?: string
+              decimals: number
+              address: string
+            }
             if (!swapTokenDetails) {
               swapTokenDetails = await fetchToken(
                 tokenDetails.chainId,
-                tokenDetails.address as `0x${string}`
-              );
+                tokenDetails.address as `0x${string}`,
+              )
             }
-            return swapTokenDetails;
-          })
-      );
+            return swapTokenDetails
+          }),
+      )
 
       const formattedPayments = payments
         .map((payment) => {
-          const chain = getChain(payment.chainId);
-          const txUrl = `${chain.explorerUrl}/tx/${payment.txHash}`;
+          const chain = getChain(payment.chainId)
+          const txUrl = `${chain.explorerUrl}/tx/${payment.txHash}`
           const chainDetails = (
             <Flex>
               <Tooltip label={chain.chainName}>
                 <img
                   src={chain.logoUri}
                   style={{
-                    marginRight: "0.25rem",
+                    marginRight: '0.25rem',
                   }}
                   width={16}
                   height={16}
@@ -161,42 +159,42 @@ export const useFormattedPayments = (page: number) => {
                 target="_blank"
                 variant="link"
               >
-                {payment.txHash ? truncateTxHash(payment.txHash) : ""}
+                {payment.txHash ? truncateTxHash(payment.txHash) : ''}
               </Text>
             </Flex>
-          );
+          )
 
-          let amountDetails, sentAmountDetails, invoiceAmount;
+          let amountDetails, sentAmountDetails, invoiceAmount
           if (payment.state === PaymentState.INDEXED) {
             // Get the token used
             const tokenInfo = tokenAddressToToken(
               payment.tokenAddress as string,
-              payment.chainId
-            );
+              payment.chainId,
+            )
             if (!tokenInfo) {
               // logger.error(
               //   `Failed to get token info for token address ${payment.tokenAddress}`
               // );
-              return null;
+              return null
             }
 
             const amount = formatPaymentAmount({
               amount: formatUnitsDecimal(
                 payment.amount?.toString() as string,
-                tokenInfo.decimals
+                tokenInfo.decimals,
               ).toNumber(),
               currency: tokenInfo.currency ?? tokenInfo.symbol,
               isFiatOrStablecoin: !CURRENCY_SYMBOL_SPECIAL_CASES.includes(
-                tokenInfo.currency ?? tokenInfo.symbol
+                tokenInfo.currency ?? tokenInfo.symbol,
               ),
-            });
+            })
             amountDetails = (
-              <Flex align={"center"}>
+              <Flex align={'center'}>
                 {tokenInfo.logoUri && (
                   <img
                     src={tokenInfo.logoUri}
                     style={{
-                      marginRight: "0.75rem",
+                      marginRight: '0.75rem',
                     }}
                     width={16}
                     height={16}
@@ -205,41 +203,41 @@ export const useFormattedPayments = (page: number) => {
                 )}
                 {amount}
               </Flex>
-            );
+            )
             invoiceAmount = `${formatBalance(
               BigInt(Number(payment.invoiceAmount!.toString())),
-              tokenInfo.decimals
-            )} ${payment.invoiceCurrency}`;
+              tokenInfo.decimals,
+            )} ${payment.invoiceCurrency}`
 
-            let sentAmount = amount;
-            let swapTokenDetails = tokenInfo;
+            let sentAmount = amount
+            let swapTokenDetails = tokenInfo
             if (!!payment.swapTokenInAmount) {
               swapTokenDetails = sentTokensUsed.find(
                 (tokenDetails) =>
                   tokenDetails.address.toLowerCase() ===
-                  payment.swapTokenIn!.toLowerCase()
-              )! as any;
+                  payment.swapTokenIn!.toLowerCase(),
+              )! as any
               sentAmount = formatPaymentAmount({
                 amount: formatUnitsDecimal(
                   payment.swapTokenInAmount.toString() as string,
-                  swapTokenDetails.decimals
+                  swapTokenDetails.decimals,
                 ).toNumber(),
                 currency: swapTokenDetails.symbol,
                 isFiatOrStablecoin:
                   !!swapTokenDetails.currency &&
                   !CURRENCY_SYMBOL_SPECIAL_CASES.includes(
-                    swapTokenDetails.currency
+                    swapTokenDetails.currency,
                   ),
                 shouldFormatCurrency: false,
-              });
+              })
             }
             sentAmountDetails = (
-              <Flex align={"center"}>
+              <Flex align={'center'}>
                 {!!swapTokenDetails.logoUri && (
                   <img
                     src={swapTokenDetails.logoUri}
                     style={{
-                      marginRight: "0.75rem",
+                      marginRight: '0.75rem',
                     }}
                     width={16}
                     height={16}
@@ -248,7 +246,7 @@ export const useFormattedPayments = (page: number) => {
                 )}
                 {sentAmount}
               </Flex>
-            );
+            )
           }
 
           return {
@@ -262,65 +260,65 @@ export const useFormattedPayments = (page: number) => {
             sentAmountDetails,
             invoiceAmount,
             state: payment.state,
-          };
+          }
         })
-        .filter((payment) => !!payment) as FormattedPayment[];
-      setFormattedPayments(formattedPayments);
+        .filter((payment) => !!payment) as FormattedPayment[]
+      setFormattedPayments(formattedPayments)
     } catch (err) {
       // logger.error(err);
       // logger.error(
       //   `Failed to get payments for page number ${page} with error: ${err}`
       // );
-      setError(err as Error);
+      setError(err as Error)
       // So that Sentry has a record of the error
-      throw err;
+      throw err
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  };
+  }
 
   useEffect(() => {
-    setIsLoading(true);
-    setFormattedPayments(null);
-    setError(null);
-    fetchFormattedPayments();
-  }, [page]);
+    setIsLoading(true)
+    setFormattedPayments(null)
+    setError(null)
+    fetchFormattedPayments()
+  }, [page])
 
   return {
     formattedPayments,
     isLoading,
     error,
-  };
-};
+  }
+}
 
 export const useLinkTypeAction = (): LinkTypeAction => {
   // const params = useParams();
   // const location = useLocation();
 
-  const params = new URLSearchParams(document.location.search);
-  const pathname = window.location.pathname;
+  const params = new URLSearchParams(document.location.search)
+  const pathname = window.location.pathname
 
-  const parentHandle = params?.get("handle") ?? null;
-  const descendantHandle = params?.get("subhandle") ?? null;
-  const isEdit = pathname.includes("edit");
+  const parentHandle = params?.get('handle') ?? null
+  const descendantHandle = params?.get('subhandle') ?? null
+  const isEdit = pathname.includes('edit')
 
   if (isEdit) {
     if (descendantHandle) {
-      return { type: "sublink", action: "edit" };
+      return { type: 'sublink', action: 'edit' }
     }
-    return { type: "link", action: "edit" };
+    return { type: 'link', action: 'edit' }
   }
   if (parentHandle) {
-    return { type: "sublink", action: "new" };
+    return { type: 'sublink', action: 'new' }
   }
-  return { type: "link", action: "new" };
-};
+  return { type: 'link', action: 'new' }
+}
 
-export const useCustomTheme = (preferredColorScheme: ColorScheme = "dark") => {
+export const useCustomTheme = (preferredColorScheme: ColorScheme = 'dark') => {
   // const preferredColorScheme = useColorScheme();
   // TODO remove this when we introduce light mode support
 
-  const width = typeof window !== "undefined" ? window.innerWidth : 0;
+  const width = typeof window !== 'undefined' ? window.innerWidth : 0
 
   const dynamicTheme: MantineThemeOverride = {
     ...theme,
@@ -335,7 +333,7 @@ export const useCustomTheme = (preferredColorScheme: ColorScheme = "dark") => {
       },
     },
     colors: { ...theme.colors, ...COLOR_SCHEME[preferredColorScheme] },
-  };
+  }
 
-  return { preferredColorScheme, dynamicTheme };
-};
+  return { preferredColorScheme, dynamicTheme }
+}

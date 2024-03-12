@@ -1,22 +1,22 @@
-import { clsx, createStyles } from "@mantine/core";
-import { Flex } from "./Flex";
+import { clsx, createStyles } from '@mantine/core'
+import { Flex } from './Flex'
 
 const useStyles = createStyles(() => ({
   emoji: {},
-}));
+}))
 
 export type EmojiProps = {
-  symbol: string;
-  label?: string;
-  className?: string;
-  m?: number;
-  my?: number;
-  mx?: number;
-  mr?: number;
-  mb?: number;
-  ml?: number;
-  mt?: number;
-};
+  symbol: string
+  label?: string
+  className?: string
+  m?: number
+  my?: number
+  mx?: number
+  mr?: number
+  mb?: number
+  ml?: number
+  mt?: number
+}
 
 export const Emoji = ({
   symbol,
@@ -30,14 +30,14 @@ export const Emoji = ({
   ml,
   mt,
 }: EmojiProps) => {
-  const { classes } = useStyles();
+  const { classes } = useStyles()
 
   return (
     <Flex
       className={clsx(classes.emoji, className)}
       role="img"
-      aria-label={label ? label : ""}
-      aria-hidden={label ? "false" : "true"}
+      aria-label={label ? label : ''}
+      aria-hidden={label ? 'false' : 'true'}
       m={m}
       my={my}
       mx={mx}
@@ -48,5 +48,5 @@ export const Emoji = ({
     >
       {symbol}
     </Flex>
-  );
-};
+  )
+}

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 import {
   ErrorIndicator,
   type ErrorIndicatorProps,
-} from "../components/ErrorIndicator";
+} from '../components/ErrorIndicator'
 
 const defaults: ErrorIndicatorProps = {
-  error: "Something went wrong",
+  error: 'Something went wrong',
   errorSize: 15,
   iconSize: 18,
   horizontal: false,
@@ -13,57 +13,57 @@ const defaults: ErrorIndicatorProps = {
   verticalMargin: 0,
   horizontalMargin: 0,
   withRetry: false,
-};
+}
 
 const meta: Meta<ErrorIndicatorProps> = {
-  title: "Components/ErrorIndicator",
+  title: 'Components/ErrorIndicator',
   component: ErrorIndicator,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     error: {
-      control: "text",
-      description: "Error message or object",
+      control: 'text',
+      description: 'Error message or object',
     },
     errorSize: {
-      control: "number",
-      description: "Font size of the error message",
+      control: 'number',
+      description: 'Font size of the error message',
     },
     iconSize: {
-      control: "number",
-      description: "Size of the icon",
+      control: 'number',
+      description: 'Size of the icon',
     },
     horizontal: {
-      control: "boolean",
-      description: "Layout direction",
+      control: 'boolean',
+      description: 'Layout direction',
     },
     shouldGrow: {
-      control: "boolean",
-      description: "Whether the component should grow to fill its container",
+      control: 'boolean',
+      description: 'Whether the component should grow to fill its container',
     },
     withRetry: {
-      control: "boolean",
-      description: "Displays a retry button",
+      control: 'boolean',
+      description: 'Displays a retry button',
     },
   },
-} satisfies Meta<typeof ErrorIndicator>;
+} satisfies Meta<typeof ErrorIndicator>
 
-export default meta;
+export default meta
 
 export const Default: StoryObj<ErrorIndicatorProps> = {
   args: {
     ...defaults,
     verticalMargin: 6,
   },
-};
+}
 
 export const WithRetry: StoryObj<ErrorIndicatorProps> = {
   args: {
     ...defaults,
     withRetry: true,
-    handleRetry: () => alert("Retry clicked"),
+    handleRetry: () => alert('Retry clicked'),
     verticalMargin: 6,
   },
-};
+}
 
 export const HorizontalLayout: StoryObj<ErrorIndicatorProps> = {
   args: {
@@ -71,4 +71,4 @@ export const HorizontalLayout: StoryObj<ErrorIndicatorProps> = {
     horizontal: true,
     horizontalMargin: 6,
   },
-};
+}

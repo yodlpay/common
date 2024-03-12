@@ -1,10 +1,10 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { List, type ListProps } from "../components/List";
-import { Eth } from "react-web3-icons";
+import type { Meta, StoryObj } from '@storybook/react'
+import { List, type ListProps } from '../components/List'
+import { Eth } from 'react-web3-icons'
 
 const defaults: ListProps = {
-  type: "unordered",
-};
+  type: 'unordered',
+}
 
 const render = function Component(args: ListProps) {
   return (
@@ -13,58 +13,58 @@ const render = function Component(args: ListProps) {
       <List.Item>Item 2</List.Item>
       <List.Item>Item 3</List.Item>
     </List>
-  );
-};
+  )
+}
 
 const meta: Meta<ListProps> = {
-  title: "Components/List",
+  title: 'Components/List',
   component: List,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     size: {
-      options: ["xs", "sm", "md", "lg", "xl"],
-      control: { type: "select" },
-      description: "Font size from theme or a specific number.",
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      control: { type: 'select' },
+      description: 'Font size from theme or a specific number.',
     },
     spacing: {
-      options: ["xs", "sm", "md", "lg", "xl"],
-      control: { type: "select" },
-      description: "Spacing between items from theme or a specific number.",
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      control: { type: 'select' },
+      description: 'Spacing between items from theme or a specific number.',
     },
     type: {
-      options: ["ordered", "unordered"],
-      control: { type: "radio" },
-      description: "List type: ol or ul.",
+      options: ['ordered', 'unordered'],
+      control: { type: 'radio' },
+      description: 'List type: ol or ul.',
     },
     withPadding: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
       description:
-        "Include padding-left to offset the list from the main content.",
+        'Include padding-left to offset the list from the main content.',
     },
     center: {
-      control: { type: "boolean" },
-      description: "Center items with an icon.",
+      control: { type: 'boolean' },
+      description: 'Center items with an icon.',
     },
     // Additional argTypes can be added here
   },
-};
+}
 
-export default meta;
+export default meta
 
 export const Default: StoryObj<ListProps> = {
   args: {
     ...defaults,
   },
   render,
-};
+}
 
 export const Ordered: StoryObj<ListProps> = {
   args: {
     ...defaults,
-    type: "ordered",
+    type: 'ordered',
   },
   render,
-};
+}
 
 export const WithIcons: StoryObj<ListProps> = {
   args: {
@@ -72,7 +72,7 @@ export const WithIcons: StoryObj<ListProps> = {
     icon: <Eth />,
   },
   render,
-};
+}
 
 export const WithPadding: StoryObj<ListProps> = {
   args: {
@@ -80,4 +80,4 @@ export const WithPadding: StoryObj<ListProps> = {
     withPadding: true,
   },
   render,
-};
+}

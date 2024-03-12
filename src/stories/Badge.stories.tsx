@@ -1,107 +1,107 @@
-import type { Meta, StoryObj } from "@storybook/react";
-import { Badge } from "../components/Badge";
-import { Ethereum, Polygon } from "react-web3-icons";
-import { SIZE_OPTIONS } from "../styles";
+import type { Meta, StoryObj } from '@storybook/react'
+import { Badge } from '../components/Badge'
+import { Ethereum, Polygon } from 'react-web3-icons'
+import { SIZE_OPTIONS } from '../styles'
 
 const defaults = {
-  color: "brand.0",
-  variant: "outline",
-  size: "md",
-  radius: "md",
+  color: 'brand.0',
+  variant: 'outline',
+  size: 'md',
+  radius: 'md',
   fullWidth: false,
-  gradient: { from: "indigo", to: "cyan" },
+  gradient: { from: 'indigo', to: 'cyan' },
   onClick: undefined,
-};
+}
 
 const meta = {
-  title: "Components/Badge",
+  title: 'Components/Badge',
   component: Badge,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     color: {
-      control: { type: "color" },
+      control: { type: 'color' },
     },
     fullWidth: {
-      control: { type: "boolean" },
+      control: { type: 'boolean' },
     },
     radius: {
       options: SIZE_OPTIONS,
-      control: { type: "select" },
+      control: { type: 'select' },
     },
     size: {
       options: SIZE_OPTIONS,
-      control: { type: "select" },
+      control: { type: 'select' },
     },
     variant: {
-      options: ["light", "filled", "outline", "dot", "gradient"],
-      control: { type: "select" },
+      options: ['light', 'filled', 'outline', 'dot', 'gradient'],
+      control: { type: 'select' },
     },
   },
-} satisfies Meta<typeof Badge>;
+} satisfies Meta<typeof Badge>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
     ...defaults,
-    children: "Default badge",
+    children: 'Default badge',
   },
-};
+}
 
 export const Primary: Story = {
   args: {
     ...defaults,
-    children: "Primary badge",
-    color: "primary.0",
+    children: 'Primary badge',
+    color: 'primary.0',
   },
-};
+}
 
 export const Small: Story = {
   args: {
     ...defaults,
-    children: "Small badge",
-    size: "sm",
+    children: 'Small badge',
+    size: 'sm',
   },
-};
+}
 
 export const Large: Story = {
   args: {
     ...defaults,
-    children: "Large badge",
-    size: "lg",
+    children: 'Large badge',
+    size: 'lg',
   },
-};
+}
 
 export const LeftIcon: Story = {
   args: {
     ...defaults,
-    children: "Badge with left icon",
+    children: 'Badge with left icon',
     leftSection: <Ethereum fontSize={10} />,
   },
-};
+}
 
 export const RightIcon: Story = {
   args: {
     ...defaults,
-    children: "Badge with right icon",
+    children: 'Badge with right icon',
     rightSection: <Polygon fontSize={10} />,
   },
-};
+}
 
 export const ActivityIcon: Story = {
   args: {
     ...defaults,
-    children: "Badge with activity indicator",
+    children: 'Badge with activity indicator',
     isActive: true,
   },
-};
+}
 
 export const ClickableBadge: Story = {
   args: {
     ...defaults,
-    children: "Clickable badge",
+    children: 'Clickable badge',
     isActive: true,
-    onClick: () => alert("Clicked"),
+    onClick: () => alert('Clicked'),
   },
-};
+}

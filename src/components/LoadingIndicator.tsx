@@ -1,32 +1,32 @@
-import { clsx, createStyles } from "@mantine/core";
-import { ExtendedMantineSize } from "../types";
-import { Flex } from "./Flex";
-import { Loader } from "./Loader";
-import { Text } from "./Text";
+import { clsx, createStyles } from '@mantine/core'
+import { ExtendedMantineSize } from '../types'
+import { Flex } from './Flex'
+import { Loader } from './Loader'
+import { Text } from './Text'
 
 type StylesProps = {
-  shouldGrow: boolean;
-};
+  shouldGrow: boolean
+}
 
 const useStyles = createStyles((theme, { shouldGrow }: StylesProps) => ({
   container: {
     flexGrow: shouldGrow ? 1 : 0,
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
-}));
+}))
 
 export type LoadingIndicatorProps = {
-  label: string;
-  labelSize?: ExtendedMantineSize;
-  spinnerSize?: ExtendedMantineSize;
-  horizontal?: boolean;
-  shouldGrow?: boolean;
-  verticalMargin?: number;
-  horizontalMargin?: number;
-  className?: string;
-};
+  label: string
+  labelSize?: ExtendedMantineSize
+  spinnerSize?: ExtendedMantineSize
+  horizontal?: boolean
+  shouldGrow?: boolean
+  verticalMargin?: number
+  horizontalMargin?: number
+  className?: string
+}
 
 export const LoadingIndicator = ({
   label,
@@ -38,12 +38,12 @@ export const LoadingIndicator = ({
   verticalMargin = 16,
   horizontalMargin = 4,
 }: LoadingIndicatorProps) => {
-  const { classes } = useStyles({ shouldGrow });
+  const { classes } = useStyles({ shouldGrow })
 
   return (
     <Flex
       className={clsx(classes.container, className)}
-      direction={horizontal ? "row" : "column"}
+      direction={horizontal ? 'row' : 'column'}
     >
       <Flex mt={verticalMargin}>
         <Loader color="subtle.0" size={spinnerSize} />
@@ -54,5 +54,5 @@ export const LoadingIndicator = ({
         </Text>
       </Flex>
     </Flex>
-  );
-};
+  )
+}

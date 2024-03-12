@@ -1,8 +1,8 @@
 import {
   Menu as MantineMenu,
   type MenuProps as MantineListItemProps,
-} from "@mantine/core";
-import React, { type ReactNode } from "react";
+} from '@mantine/core'
+import React, { type ReactNode } from 'react'
 
 // TODO - WIP
 
@@ -11,21 +11,21 @@ export type ListItemProps = {
    * ListItem contents
    */
   data: {
-    label: string;
-    icon?: ReactNode;
-    rightSection?: ReactNode;
-    color?: string;
-    onClick?: () => void;
-  }[];
+    label: string
+    icon?: ReactNode
+    rightSection?: ReactNode
+    color?: string
+    onClick?: () => void
+  }[]
   /**
    * ListItem click handler
    */
-  onClick: (event: React.MouseEvent<HTMLDivElement>) => void;
+  onClick: (event: React.MouseEvent<HTMLDivElement>) => void
   /**
    * ListItem class name
    */
-  className?: string;
-} & MantineListItemProps;
+  className?: string
+} & MantineListItemProps
 
 /**
  * ListItem component
@@ -61,5 +61,5 @@ export const ListItem = ({
         ))}
       </MantineMenu.Dropdown>
     </MantineMenu>
-  );
-};
+  )
+}

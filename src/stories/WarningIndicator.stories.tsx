@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 import {
   WarningIndicator,
   type WarningIndicatorProps,
-} from "../components/WarningIndicator";
+} from '../components/WarningIndicator'
 
 const defaults: WarningIndicatorProps = {
-  label: "Warning!",
-  description: "This is a warning indicator.",
-  labelColor: "primary.0",
-  labelSize: "md",
+  label: 'Warning!',
+  description: 'This is a warning indicator.',
+  labelColor: 'primary.0',
+  labelSize: 'md',
   iconSize: 18,
   horizontal: false,
   shouldGrow: true,
@@ -16,54 +16,54 @@ const defaults: WarningIndicatorProps = {
   labelBold: false,
   verticalMargin: 0,
   horizontalMargin: 0,
-  borderRadius: "md",
-  padding: "sm",
-  type: "warning",
+  borderRadius: 'md',
+  padding: 'sm',
+  type: 'warning',
   backgroundShade: -1,
-};
+}
 
 const meta: Meta<WarningIndicatorProps> = {
-  title: "Components/WarningIndicator",
+  title: 'Components/WarningIndicator',
   component: WarningIndicator,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   argTypes: {
     label: {
-      control: "text",
-      description: "Indicator label",
+      control: 'text',
+      description: 'Indicator label',
     },
     description: {
-      control: "text",
-      description: "Optional detailed description",
+      control: 'text',
+      description: 'Optional detailed description',
     },
     labelColor: {
-      control: "color",
-      description: "Label text color",
+      control: 'color',
+      description: 'Label text color',
     },
     labelSize: {
-      control: "select",
-      options: ["xs", "sm", "md", "lg", "xl"],
-      description: "Font size of the label",
+      control: 'select',
+      options: ['xs', 'sm', 'md', 'lg', 'xl'],
+      description: 'Font size of the label',
     },
     iconSize: {
-      control: "number",
-      description: "Size of the icon",
+      control: 'number',
+      description: 'Size of the icon',
     },
     type: {
-      control: "radio",
-      options: ["info", "warning"],
-      description: "Type of indicator",
+      control: 'radio',
+      options: ['info', 'warning'],
+      description: 'Type of indicator',
     },
   },
-} satisfies Meta<typeof WarningIndicator>;
+} satisfies Meta<typeof WarningIndicator>
 
-export default meta;
+export default meta
 
 export const Default: StoryObj<WarningIndicatorProps> = {
   args: {
     ...defaults,
     verticalMargin: 6,
   },
-};
+}
 
 export const Horizontal: StoryObj<WarningIndicatorProps> = {
   args: {
@@ -71,16 +71,16 @@ export const Horizontal: StoryObj<WarningIndicatorProps> = {
     horizontal: true,
     horizontalMargin: 6,
   },
-};
+}
 
 export const InfoType: StoryObj<WarningIndicatorProps> = {
   args: {
     ...defaults,
-    label: "Information",
-    type: "info",
+    label: 'Information',
+    type: 'info',
     verticalMargin: 6,
   },
-};
+}
 
 export const WithBorder: StoryObj<WarningIndicatorProps> = {
   args: {
@@ -88,7 +88,7 @@ export const WithBorder: StoryObj<WarningIndicatorProps> = {
     withBorder: true,
     verticalMargin: 6,
   },
-};
+}
 
 export const CustomBackground: StoryObj<WarningIndicatorProps> = {
   args: {
@@ -96,4 +96,4 @@ export const CustomBackground: StoryObj<WarningIndicatorProps> = {
     backgroundShade: 1,
     verticalMargin: 6,
   },
-};
+}

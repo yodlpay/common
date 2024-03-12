@@ -8,89 +8,89 @@ import {
   type MantineGradient,
   type MantineNumberSize,
   type MantineSize,
-} from "@mantine/core";
-import { forwardRef, type ReactNode } from "react";
-import { CUSTOM_COLORS } from "../styles";
+} from '@mantine/core'
+import { forwardRef, type ReactNode } from 'react'
+import { CUSTOM_COLORS } from '../styles'
 
 const useStyles = createStyles((theme, { isActive, onClick }: BadgeProps) => ({
   badge: {
-    fontWeight: "normal",
-    textTransform: "none",
-    cursor: onClick ? "pointer" : "auto",
+    fontWeight: 'normal',
+    textTransform: 'none',
+    cursor: onClick ? 'pointer' : 'auto',
     ...(isActive !== undefined && {
-      borderColor: "transparent",
+      borderColor: 'transparent',
       background: isActive
         ? theme.colors?.positiveBase
         : CUSTOM_COLORS.positiveBaseInactive,
       color: isActive
         ? theme.colors?.positive
-        : theme.colorScheme === "light"
+        : theme.colorScheme === 'light'
         ? CUSTOM_COLORS.positiveLightInactive
         : CUSTOM_COLORS.positiveDarkInactive,
     }),
-    "& .mantine-Badge-leftSection": {
-      display: "flex",
+    '& .mantine-Badge-leftSection': {
+      display: 'flex',
     },
-    "& .mantine-Badge-rightSection": {
-      display: "flex",
+    '& .mantine-Badge-rightSection': {
+      display: 'flex',
     },
   },
-}));
+}))
 
-type BadgeComponentType = "button" | "div" | undefined;
+type BadgeComponentType = 'button' | 'div' | undefined
 
 export type BadgeProps = {
-  component?: BadgeComponentType;
+  component?: BadgeComponentType
   /**
    * Badge variant
    */
-  variant?: MantineBadgeVariant;
+  variant?: MantineBadgeVariant
   /**
    * Badge size
    */
-  size?: MantineSize;
+  size?: MantineSize
   /**
    * Badge border radius
    */
-  radius?: MantineNumberSize;
+  radius?: MantineNumberSize
   /**
    * Badge right side section
    */
-  rightSection?: ReactNode;
+  rightSection?: ReactNode
   /**
    * Badge left side section
    */
-  leftSection?: ReactNode;
+  leftSection?: ReactNode
   /**
    * Badge gradient (applies to gradient variant only)
    */
-  gradient?: MantineGradient;
+  gradient?: MantineGradient
   /**
    * Badge width (100% of parent element or auto)
    */
-  fullWidth?: boolean;
+  fullWidth?: boolean
   /**
    * Badge color (key of theme.colors)
    */
-  color?: MantineColor;
+  color?: MantineColor
   /**
    *
    * Badge contents
    */
-  children: ReactNode;
+  children: ReactNode
   /**
    * Badge should display activity indicator
    */
-  isActive?: boolean;
+  isActive?: boolean
   /**
    * Badge onClick handler
    */
-  onClick?: () => void;
+  onClick?: () => void
   /**
    * Badge class name
    */
-  className?: string;
-} & MantineBadgeProps;
+  className?: string
+} & MantineBadgeProps
 /**
  * Primary UI component for user interaction
  */
@@ -98,16 +98,16 @@ export type BadgeProps = {
 export const Badge = forwardRef(
   (
     {
-      variant = "outline",
-      size = "lg",
-      radius = "md",
+      variant = 'outline',
+      size = 'lg',
+      radius = 'md',
       className,
       onClick,
       children,
       isActive,
       ...props
     }: BadgeProps,
-    ref: React.Ref<HTMLDivElement | HTMLButtonElement>
+    ref: React.Ref<HTMLDivElement | HTMLButtonElement>,
   ) => {
     const { classes } = useStyles({
       variant,
@@ -116,7 +116,7 @@ export const Badge = forwardRef(
       onClick,
       isActive,
       ...props,
-    });
+    })
 
     if (onClick) {
       return (
@@ -132,7 +132,7 @@ export const Badge = forwardRef(
         >
           {children}
         </MantineBadge>
-      );
+      )
     } else {
       return (
         <MantineBadge
@@ -145,7 +145,7 @@ export const Badge = forwardRef(
         >
           {children}
         </MantineBadge>
-      );
+      )
     }
-  }
-);
+  },
+)
