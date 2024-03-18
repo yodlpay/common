@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Modal, type ModalProps } from '../components/Modal'
-import { Button } from '../components/Button'
-import { useArgs } from '@storybook/preview-api'
-import { ScrollArea } from '@mantine/core'
-import { SIZE_OPTIONS } from '../styles'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Modal, type ModalProps } from '../components/Modal';
+import { Button } from '../components/Button';
+import { useArgs } from '@storybook/preview-api';
+import { ScrollArea } from '@mantine/core';
+import { SIZE_OPTIONS } from '../styles';
 
 const defaults = {
   centered: false,
@@ -35,22 +35,22 @@ const defaults = {
   opened: false,
   children: <div>Content</div>,
   onClose: () => null,
-}
+};
 
 const render = function Component(args: ModalProps) {
-  const [, setArgs] = useArgs()
+  const [, setArgs] = useArgs();
 
   const handleToggle = () => {
-    setArgs({ opened: !args.opened })
-  }
+    setArgs({ opened: !args.opened });
+  };
 
   return (
     <div>
       <Modal {...args} onClose={handleToggle} />
       <Button onClick={handleToggle}>Open modal</Button>
     </div>
-  )
-}
+  );
+};
 
 const meta = {
   title: 'Components/Modal',
@@ -111,10 +111,10 @@ const meta = {
       control: { type: 'select' },
     },
   },
-} satisfies Meta<typeof Modal>
+} satisfies Meta<typeof Modal>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
@@ -123,7 +123,7 @@ export const Default: Story = {
     children: <div>Content</div>,
   },
   render,
-}
+};
 
 export const Centered: Story = {
   args: {
@@ -133,7 +133,7 @@ export const Centered: Story = {
     children: <div>Content</div>,
   },
   render,
-}
+};
 
 export const FullScreen: Story = {
   args: {
@@ -143,4 +143,4 @@ export const FullScreen: Story = {
     children: <div>Content</div>,
   },
   render,
-}
+};

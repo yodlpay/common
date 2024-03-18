@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Indicator, type IndicatorProps } from '../components/Indicator'
-import { Avatar } from '../components/Avatar'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Indicator, type IndicatorProps } from '../components/Indicator';
+import { Avatar } from '../components/Avatar';
 
 const defaults: IndicatorProps = {
   color: 'red',
@@ -19,9 +19,9 @@ const defaults: IndicatorProps = {
       src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=250&q=80"
     />
   ),
-}
+};
 
-const render = (args: IndicatorProps) => <Indicator {...args} />
+const render = (args: IndicatorProps) => <Indicator {...args} />;
 
 const meta: Meta<IndicatorProps> = {
   title: 'Components/Indicator',
@@ -52,9 +52,9 @@ const meta: Meta<IndicatorProps> = {
     withBorder: { control: { type: 'boolean' } },
     zIndex: { control: { type: 'number' } },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Colored: StoryObj<IndicatorProps> = {
   args: {
@@ -62,7 +62,7 @@ export const Colored: StoryObj<IndicatorProps> = {
     color: 'blue',
   },
   render,
-}
+};
 
 export const LargeSize: StoryObj<IndicatorProps> = {
   args: {
@@ -70,7 +70,7 @@ export const LargeSize: StoryObj<IndicatorProps> = {
     size: 20,
   },
   render,
-}
+};
 
 export const Processing: StoryObj<IndicatorProps> = {
   args: {
@@ -78,7 +78,7 @@ export const Processing: StoryObj<IndicatorProps> = {
     processing: true,
   },
   render,
-}
+};
 
 export const CustomPosition: StoryObj<IndicatorProps> = {
   args: {
@@ -86,7 +86,7 @@ export const CustomPosition: StoryObj<IndicatorProps> = {
     position: 'middle-center',
   },
   render,
-}
+};
 
 export const WithBorder: StoryObj<IndicatorProps> = {
   args: {
@@ -94,7 +94,7 @@ export const WithBorder: StoryObj<IndicatorProps> = {
     withBorder: true,
   },
   render,
-}
+};
 
 export const DifferentRadius: StoryObj<IndicatorProps> = {
   args: {
@@ -102,4 +102,4 @@ export const DifferentRadius: StoryObj<IndicatorProps> = {
     radius: 'xl',
   },
   render,
-}
+};

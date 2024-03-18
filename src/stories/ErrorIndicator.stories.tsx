@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 import {
   ErrorIndicator,
   type ErrorIndicatorProps,
-} from '../components/ErrorIndicator'
+} from '../components/ErrorIndicator';
 
 const defaults: ErrorIndicatorProps = {
   error: 'Something went wrong',
@@ -13,7 +13,7 @@ const defaults: ErrorIndicatorProps = {
   verticalMargin: 0,
   horizontalMargin: 0,
   withRetry: false,
-}
+};
 
 const meta: Meta<ErrorIndicatorProps> = {
   title: 'Components/ErrorIndicator',
@@ -45,16 +45,16 @@ const meta: Meta<ErrorIndicatorProps> = {
       description: 'Displays a retry button',
     },
   },
-} satisfies Meta<typeof ErrorIndicator>
+} satisfies Meta<typeof ErrorIndicator>;
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<ErrorIndicatorProps> = {
   args: {
     ...defaults,
     verticalMargin: 6,
   },
-}
+};
 
 export const WithRetry: StoryObj<ErrorIndicatorProps> = {
   args: {
@@ -63,7 +63,7 @@ export const WithRetry: StoryObj<ErrorIndicatorProps> = {
     handleRetry: () => alert('Retry clicked'),
     verticalMargin: 6,
   },
-}
+};
 
 export const HorizontalLayout: StoryObj<ErrorIndicatorProps> = {
   args: {
@@ -71,4 +71,4 @@ export const HorizontalLayout: StoryObj<ErrorIndicatorProps> = {
     horizontal: true,
     horizontalMargin: 6,
   },
-}
+};

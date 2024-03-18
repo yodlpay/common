@@ -4,70 +4,70 @@ import {
   type MantineColor,
   type MantineGradient,
   type Variants,
-} from '@mantine/core'
-import { forwardRef, type ReactNode } from 'react'
+} from '@mantine/core';
+import { forwardRef, type ReactNode } from 'react';
 
 export type AvatarProps = {
   /**
    * Image alt text or title for placeholder variant
    */
-  alt?: string
+  alt?: string;
 
   /**
    * Custom placeholder
    */
-  children?: ReactNode
+  children?: ReactNode;
 
   /**
    * Key of theme.colors
    */
-  color?: MantineColor
+  color?: MantineColor;
 
   /**
    * Gradient input, only used when variant="gradient", theme.defaultGradient by default
    */
-  gradient?: MantineGradient
+  gradient?: MantineGradient;
 
   /**
    * `<img />` element attributes
    */
-  imageProps?: Record<string, any>
+  imageProps?: Record<string, any>;
 
   /**
    * Key of theme.radius or any valid CSS value to set border-radius, "xl" by default
    */
-  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Avatar width and height
    */
-  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Image url
    */
-  src?: string
+  src?: string;
 
   /**
    * Controls appearance
    */
-  variant?: Variants<'outline' | 'light' | 'filled' | 'gradient'>
+  variant?: Variants<'outline' | 'light' | 'filled' | 'gradient'>;
   /**
    * Avatar class name
    */
-  className?: string
-} & MantineAvatarProps
+  className?: string;
+} & MantineAvatarProps;
 
 const InnerAvatar = forwardRef(
   ({ className, ...props }: AvatarProps, ref: React.Ref<HTMLDivElement>) => {
-    return <MantineAvatar ref={ref} {...props} className={className} />
+    return <MantineAvatar ref={ref} {...props} className={className} />;
   },
-)
+);
 
-const AvatarGroup = MantineAvatar.Group
+const AvatarGroup = MantineAvatar.Group;
 
 const Avatar = Object.assign(InnerAvatar, {
   Group: AvatarGroup,
-})
+});
 
-export { Avatar }
+export { Avatar };

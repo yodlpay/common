@@ -1,26 +1,26 @@
-import { useArgs } from '@storybook/preview-api'
-import type { Meta, StoryObj } from '@storybook/react'
-import { CHAINS } from '../constants'
-import { SIZE_OPTIONS } from '../styles'
-import { Select, type SelectProps } from '../components/Select'
+import { useArgs } from '@storybook/preview-api';
+import type { Meta, StoryObj } from '@storybook/react';
+import { CHAINS } from '../constants';
+import { SIZE_OPTIONS } from '../styles';
+import { Select, type SelectProps } from '../components/Select';
 
-const SELECT_DATA = CHAINS.map((chain) => chain.chainName)
+const SELECT_DATA = CHAINS.map((chain) => chain.chainName);
 const SELECT_DESCRIPTION_DATA = CHAINS.map((item) => ({
   label: item.chainName,
   value: item.chainName,
   description: 'Token',
-}))
+}));
 const SELECT_ICON_DATA = CHAINS.map((item) => ({
   label: item.chainName,
   value: item.chainName,
   image: item.logoUri,
-}))
+}));
 const SELECT_FULL_DATA = CHAINS.map((item) => ({
   label: item.chainName,
   value: item.chainName,
   description: 'Token',
   image: item.logoUri,
-}))
+}));
 
 const defaults = {
   allowDeselect: false,
@@ -67,17 +67,17 @@ const defaults = {
   zIndex: 200,
   name: 'select',
   hideText: false,
-}
+};
 
 const render = function Component(args: SelectProps) {
-  const [, setArgs] = useArgs()
+  const [, setArgs] = useArgs();
 
   const handleChange = (value: string) => {
-    setArgs({ value })
-  }
+    setArgs({ value });
+  };
 
-  return <Select {...args} onChange={handleChange} />
-}
+  return <Select {...args} onChange={handleChange} />;
+};
 
 const meta = {
   title: 'Components/Select',
@@ -181,10 +181,10 @@ const meta = {
       control: { type: 'object' },
     },
   },
-} satisfies Meta<typeof Select>
+} satisfies Meta<typeof Select>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
@@ -193,7 +193,7 @@ export const Default: Story = {
     data: SELECT_DATA,
   },
   render,
-}
+};
 
 export const Searchable: Story = {
   args: {
@@ -203,7 +203,7 @@ export const Searchable: Story = {
     searchable: true,
   },
   render,
-}
+};
 
 export const Error: Story = {
   args: {
@@ -213,7 +213,7 @@ export const Error: Story = {
     error: 'Something went wrong',
   },
   render,
-}
+};
 
 export const Clearable: Story = {
   args: {
@@ -223,7 +223,7 @@ export const Clearable: Story = {
     clearable: true,
   },
   render,
-}
+};
 
 export const WithDescription: Story = {
   args: {
@@ -232,7 +232,7 @@ export const WithDescription: Story = {
     data: SELECT_DESCRIPTION_DATA,
   },
   render,
-}
+};
 
 export const WithIcon: Story = {
   args: {
@@ -241,7 +241,7 @@ export const WithIcon: Story = {
     data: SELECT_ICON_DATA,
   },
   render,
-}
+};
 
 export const WithIconAndDescription: Story = {
   args: {
@@ -250,7 +250,7 @@ export const WithIconAndDescription: Story = {
     data: SELECT_FULL_DATA,
   },
   render,
-}
+};
 
 export const WithHiddenText: Story = {
   args: {
@@ -260,4 +260,4 @@ export const WithHiddenText: Story = {
     hideText: true,
   },
   render,
-}
+};

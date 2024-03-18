@@ -1,22 +1,22 @@
-import { clsx, createStyles } from '@mantine/core'
-import { Flex } from './Flex'
+import { clsx, createStyles } from '@mantine/core';
+import { Flex } from './Flex';
 
 const useStyles = createStyles(() => ({
   emoji: {},
-}))
+}));
 
 export type EmojiProps = {
-  symbol: string
-  label?: string
-  className?: string
-  m?: number
-  my?: number
-  mx?: number
-  mr?: number
-  mb?: number
-  ml?: number
-  mt?: number
-}
+  symbol: string;
+  label?: string;
+  className?: string;
+  m?: number;
+  my?: number;
+  mx?: number;
+  mr?: number;
+  mb?: number;
+  ml?: number;
+  mt?: number;
+};
 
 export const Emoji = ({
   symbol,
@@ -30,7 +30,7 @@ export const Emoji = ({
   ml,
   mt,
 }: EmojiProps) => {
-  const { classes } = useStyles()
+  const { classes } = useStyles();
 
   return (
     <Flex
@@ -48,5 +48,5 @@ export const Emoji = ({
     >
       {symbol}
     </Flex>
-  )
-}
+  );
+};

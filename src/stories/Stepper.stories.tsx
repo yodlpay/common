@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Stepper, type StepperProps } from '../components/Stepper'
-import { useArgs } from '@storybook/preview-api'
-import { MetaMask } from 'react-web3-icons'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Stepper, type StepperProps } from '../components/Stepper';
+import { useArgs } from '@storybook/preview-api';
+import { MetaMask } from 'react-web3-icons';
 
 const defaults: StepperProps = {
   active: 1,
@@ -34,19 +34,19 @@ const defaults: StepperProps = {
       content: 'Step 3 - Get full access',
     },
   ],
-}
+};
 
 const render = function Component(props: StepperProps) {
-  const [args, setArgs] = useArgs()
+  const [args, setArgs] = useArgs();
 
   const handleStepClick = (step: number) => {
-    setArgs({ active: step })
-  }
+    setArgs({ active: step });
+  };
 
   return (
     <Stepper {...props} active={args.active} onStepClick={handleStepClick} />
-  )
-}
+  );
+};
 
 const meta: Meta<StepperProps> = {
   title: 'Components/Stepper',
@@ -83,16 +83,16 @@ const meta: Meta<StepperProps> = {
       control: { type: 'boolean' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<StepperProps> = {
   args: {
     ...defaults,
   },
   render,
-}
+};
 
 export const VerticalOrientation: StoryObj<StepperProps> = {
   args: {
@@ -100,7 +100,7 @@ export const VerticalOrientation: StoryObj<StepperProps> = {
     orientation: 'vertical',
   },
   render,
-}
+};
 
 export const WithIcons: StoryObj<StepperProps> = {
   args: {
@@ -108,7 +108,7 @@ export const WithIcons: StoryObj<StepperProps> = {
     icon: <MetaMask style={{ width: 10, height: 10 }} />,
   },
   render,
-}
+};
 
 export const CustomColor: StoryObj<StepperProps> = {
   args: {
@@ -116,4 +116,4 @@ export const CustomColor: StoryObj<StepperProps> = {
     color: 'red',
   },
   render,
-}
+};

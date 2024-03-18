@@ -2,9 +2,9 @@ import {
   Cog8ToothIcon,
   InboxIcon,
   PhotoIcon,
-} from '@heroicons/react/24/outline'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Tabs, type TabsProps } from '../components/Tabs'
+} from '@heroicons/react/24/outline';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Tabs, type TabsProps } from '../components/Tabs';
 
 const defaults: TabsProps = {
   color: 'brand.0',
@@ -41,7 +41,7 @@ const defaults: TabsProps = {
       },
     },
   ],
-}
+};
 
 const meta: Meta<TabsProps> = {
   title: 'Components/Tabs',
@@ -76,20 +76,20 @@ const meta: Meta<TabsProps> = {
       },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<TabsProps> = {
   args: defaults,
-}
+};
 
 export const Pill: StoryObj<TabsProps> = {
   args: {
     ...defaults,
     variant: 'pill',
   },
-}
+};
 
 export const WithGrow: StoryObj<TabsProps> = {
   args: {
@@ -101,7 +101,7 @@ export const WithGrow: StoryObj<TabsProps> = {
       grow: true,
     },
   },
-}
+};
 
 export const CenteredTabs: StoryObj<TabsProps> = {
   args: {
@@ -113,14 +113,14 @@ export const CenteredTabs: StoryObj<TabsProps> = {
       position: 'center',
     },
   },
-}
+};
 
 export const VerticalOrientation: StoryObj<TabsProps> = {
   args: {
     ...defaults,
     orientation: 'vertical',
   },
-}
+};
 
 export const WithRightPlacement: StoryObj<TabsProps> = {
   args: {
@@ -128,4 +128,4 @@ export const WithRightPlacement: StoryObj<TabsProps> = {
     orientation: 'vertical',
     placement: 'right',
   },
-}
+};

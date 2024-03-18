@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { ActionIcon, type ActionIconProps } from '../components/ActionIcon'
-import { Ethereum } from 'react-web3-icons'
+import type { Meta, StoryObj } from '@storybook/react';
+import { ActionIcon, type ActionIconProps } from '../components/ActionIcon';
+import { Ethereum } from 'react-web3-icons';
 
 const defaults = {
   color: 'brand.0',
@@ -17,7 +17,7 @@ const defaults = {
     | 'light'
     | 'default'
     | 'filled',
-}
+};
 
 const meta: Meta<ActionIconProps> = {
   title: 'Components/ActionIcon',
@@ -57,16 +57,16 @@ const meta: Meta<ActionIconProps> = {
       control: { type: 'select' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<ActionIconProps> = {
   args: {
     ...defaults,
     children: <Ethereum />,
   },
-}
+};
 
 export const Outline: StoryObj<ActionIconProps> = {
   args: {
@@ -74,7 +74,7 @@ export const Outline: StoryObj<ActionIconProps> = {
     variant: 'outline',
     children: <Ethereum />,
   },
-}
+};
 
 export const Filled: StoryObj<ActionIconProps> = {
   args: {
@@ -82,4 +82,4 @@ export const Filled: StoryObj<ActionIconProps> = {
     variant: 'filled',
     children: <Ethereum />,
   },
-}
+};

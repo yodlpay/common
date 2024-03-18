@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 import {
   LoadingIndicator,
   type LoadingIndicatorProps,
-} from '../components/LoadingIndicator'
+} from '../components/LoadingIndicator';
 
 const defaults: LoadingIndicatorProps = {
   label: 'Loading...',
@@ -11,7 +11,7 @@ const defaults: LoadingIndicatorProps = {
   shouldGrow: true,
   verticalMargin: 0,
   horizontalMargin: 0,
-}
+};
 
 const meta: Meta<LoadingIndicatorProps> = {
   title: 'Components/LoadingIndicator',
@@ -41,16 +41,16 @@ const meta: Meta<LoadingIndicatorProps> = {
       description: 'Whether the component should grow to fill its container',
     },
   },
-} satisfies Meta<typeof LoadingIndicator>
+} satisfies Meta<typeof LoadingIndicator>;
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<LoadingIndicatorProps> = {
   args: {
     ...defaults,
     verticalMargin: 6,
   },
-}
+};
 
 export const HorizontalLayout: StoryObj<LoadingIndicatorProps> = {
   args: {
@@ -58,7 +58,7 @@ export const HorizontalLayout: StoryObj<LoadingIndicatorProps> = {
     horizontal: true,
     horizontalMargin: 6,
   },
-}
+};
 
 export const CustomSize: StoryObj<LoadingIndicatorProps> = {
   args: {
@@ -67,4 +67,4 @@ export const CustomSize: StoryObj<LoadingIndicatorProps> = {
     spinnerSize: 26,
     verticalMargin: 6,
   },
-}
+};

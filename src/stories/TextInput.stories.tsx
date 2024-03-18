@@ -1,7 +1,7 @@
-import { useArgs } from '@storybook/preview-api'
-import type { Meta, StoryObj } from '@storybook/react'
-import { SIZE_OPTIONS } from '../styles'
-import { TextInput, type TextInputProps } from '../components/TextInput'
+import { useArgs } from '@storybook/preview-api';
+import type { Meta, StoryObj } from '@storybook/react';
+import { SIZE_OPTIONS } from '../styles';
+import { TextInput, type TextInputProps } from '../components/TextInput';
 
 const defaults = {
   description: 'Email Address',
@@ -17,17 +17,17 @@ const defaults = {
   withAsterisk: false,
   name: 'email',
   value: '',
-}
+};
 
 const render = function Component(args: TextInputProps) {
-  const [, setArgs] = useArgs()
+  const [, setArgs] = useArgs();
 
   const handleChange = (value: string) => {
-    setArgs({ value })
-  }
+    setArgs({ value });
+  };
 
-  return <TextInput {...args} onChange={handleChange} />
-}
+  return <TextInput {...args} onChange={handleChange} />;
+};
 
 const meta: Meta<TextInputProps> = {
   title: 'Components/TextInput',
@@ -65,14 +65,14 @@ const meta: Meta<TextInputProps> = {
       },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<TextInputProps> = {
   args: { ...defaults },
   render,
-}
+};
 
 export const WithIcon: StoryObj<TextInputProps> = {
   args: {
@@ -80,7 +80,7 @@ export const WithIcon: StoryObj<TextInputProps> = {
     icon: '✉️',
   },
   render,
-}
+};
 
 export const ErrorState: StoryObj<TextInputProps> = {
   args: {
@@ -88,7 +88,7 @@ export const ErrorState: StoryObj<TextInputProps> = {
     error: 'Invalid email address',
   },
   render,
-}
+};
 
 export const DisabledState: StoryObj<TextInputProps> = {
   args: {
@@ -96,7 +96,7 @@ export const DisabledState: StoryObj<TextInputProps> = {
     disabled: true,
   },
   render,
-}
+};
 
 export const PasswordTextInput: StoryObj<TextInputProps> = {
   args: {
@@ -106,4 +106,4 @@ export const PasswordTextInput: StoryObj<TextInputProps> = {
     type: 'password',
   },
   render,
-}
+};

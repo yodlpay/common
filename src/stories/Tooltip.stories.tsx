@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Tooltip, type TooltipProps } from '../components/Tooltip'
-import { Button } from '../components/Button'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Tooltip, type TooltipProps } from '../components/Tooltip';
+import { Button } from '../components/Button';
 
 const defaults: Partial<TooltipProps> = {
   arrowOffset: 0,
@@ -22,15 +22,15 @@ const defaults: Partial<TooltipProps> = {
   withArrow: false,
   withinPortal: false,
   zIndex: 1,
-}
+};
 
 const render = function Component(args: TooltipProps) {
   return (
     <Tooltip {...args}>
       <Button>Hover over me</Button>
     </Tooltip>
-  )
-}
+  );
+};
 
 const meta: Meta = {
   title: 'Components/Tooltip',
@@ -85,9 +85,9 @@ const meta: Meta = {
     withinPortal: { control: { type: 'boolean' } },
     zIndex: { control: { type: 'number' } },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const BasicTooltip: StoryObj<TooltipProps> = {
   args: {
@@ -95,7 +95,7 @@ export const BasicTooltip: StoryObj<TooltipProps> = {
     label: 'This is a basic tooltip',
   },
   render,
-}
+};
 
 export const WithArrowTooltip: StoryObj<TooltipProps> = {
   args: {
@@ -104,7 +104,7 @@ export const WithArrowTooltip: StoryObj<TooltipProps> = {
     withArrow: true,
   },
   render,
-}
+};
 
 export const DisabledTooltip: StoryObj<TooltipProps> = {
   args: {
@@ -113,4 +113,4 @@ export const DisabledTooltip: StoryObj<TooltipProps> = {
     disabled: true,
   },
   render,
-}
+};

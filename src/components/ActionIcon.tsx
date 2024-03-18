@@ -4,53 +4,53 @@ import {
   type LoaderProps,
   type MantineColor,
   type MantineGradient,
-} from '@mantine/core'
-import { forwardRef, type ReactNode } from 'react'
+} from '@mantine/core';
+import { forwardRef, type ReactNode } from 'react';
 
 export type ActionIconProps = {
   /**
    * Action icon onClick handler
    */
-  onClick: () => void
+  onClick: () => void;
   /**
    * Icon to be displayed
    */
-  children: ReactNode
+  children: ReactNode;
 
   /**
    * Action icon color (key of theme.colors)
    */
-  color?: MantineColor
+  color?: MantineColor;
 
   /**
    * Action icon disabled state
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * Action icon gradient input, only used when variant="gradient", theme.defaultGradient by default
    */
-  gradient?: MantineGradient
+  gradient?: MantineGradient;
 
   /**
    * Action icon props added to Loader component (only visible when `loading` prop is set)
    */
-  loaderProps?: LoaderProps
+  loaderProps?: LoaderProps;
 
   /**
    * Action icon loading state
    */
-  loading?: boolean
+  loading?: boolean;
 
   /**
    * Action icon radius size (key of theme.radius)
    */
-  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Action icon button size
    */
-  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Action icon variant
@@ -62,12 +62,12 @@ export type ActionIconProps = {
     | 'default'
     | 'filled'
     | 'gradient'
-    | 'subtle'
+    | 'subtle';
   /**
    * Action class name
    */
-  className?: string
-} & MantineActionIconProps
+  className?: string;
+} & MantineActionIconProps;
 
 export const ActionIcon = forwardRef(
   (
@@ -81,6 +81,6 @@ export const ActionIcon = forwardRef(
         onClick={onClick}
         className={className}
       />
-    )
+    );
   },
-)
+);

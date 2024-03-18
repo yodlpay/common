@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Text, type TextProps } from '../components/Text'
-import { MetaMask } from 'react-web3-icons'
-import { createStyles } from '@mantine/core'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Text, type TextProps } from '../components/Text';
+import { MetaMask } from 'react-web3-icons';
+import { createStyles } from '@mantine/core';
 
 const useStyles = createStyles(() => ({
   leftIcon: {
@@ -10,14 +10,14 @@ const useStyles = createStyles(() => ({
   rightIcon: {
     marginLeft: '12px',
   },
-}))
+}));
 
 const StyleProvider: React.FC<{
-  children: (classes: ReturnType<typeof useStyles>) => JSX.Element
+  children: (classes: ReturnType<typeof useStyles>) => JSX.Element;
 }> = ({ children }) => {
-  const classes = useStyles()
-  return children(classes)
-}
+  const classes = useStyles();
+  return children(classes);
+};
 
 const defaults: TextProps = {
   align: 'left',
@@ -34,7 +34,7 @@ const defaults: TextProps = {
   variant: 'text' as 'text' | 'gradient',
   weight: 400,
   children: 'This is a sample text.',
-}
+};
 
 const meta: Meta<TextProps> = {
   title: 'Components/Text',
@@ -64,15 +64,15 @@ const meta: Meta<TextProps> = {
       control: { type: 'number' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<TextProps> = {
   args: {
     ...defaults,
   },
-}
+};
 
 export const GradientText: StoryObj<TextProps> = {
   args: {
@@ -84,7 +84,7 @@ export const GradientText: StoryObj<TextProps> = {
       deg: 45,
     },
   },
-}
+};
 
 export const TextWithLeftIcon: StoryObj<TextProps> = {
   args: {
@@ -95,7 +95,7 @@ export const TextWithLeftIcon: StoryObj<TextProps> = {
       </StyleProvider>
     ),
   },
-}
+};
 
 export const TextWithRightIcon: StoryObj<TextProps> = {
   args: {
@@ -106,7 +106,7 @@ export const TextWithRightIcon: StoryObj<TextProps> = {
       </StyleProvider>
     ),
   },
-}
+};
 
 export const TextWithBothIcons: StoryObj<TextProps> = {
   args: {
@@ -122,4 +122,4 @@ export const TextWithBothIcons: StoryObj<TextProps> = {
       </StyleProvider>
     ),
   },
-}
+};

@@ -1,9 +1,9 @@
 // Popover.stories.tsx
-import { useArgs } from '@storybook/preview-api'
-import type { Meta, StoryObj } from '@storybook/react'
-import React, { type ReactElement } from 'react'
-import { Button } from '../components/Button'
-import { Popover, type PopoverProps } from '../components/Popover'
+import { useArgs } from '@storybook/preview-api';
+import type { Meta, StoryObj } from '@storybook/react';
+import React, { type ReactElement } from 'react';
+import { Button } from '../components/Button';
+import { Popover, type PopoverProps } from '../components/Popover';
 
 const defaults: PopoverProps = {
   arrowOffset: 10,
@@ -37,14 +37,14 @@ const defaults: PopoverProps = {
   withRoles: true,
   withinPortal: false,
   zIndex: 1,
-}
+};
 
 const render = function Component(props: PopoverProps) {
-  const [args, setArgs] = useArgs()
+  const [args, setArgs] = useArgs();
 
   const handleToggle = () => {
-    setArgs({ opened: !props.opened })
-  }
+    setArgs({ opened: !props.opened });
+  };
 
   const componentChildren =
     props.children &&
@@ -52,20 +52,20 @@ const render = function Component(props: PopoverProps) {
     'props' in props.children &&
     'children' in props.children.props
       ? props.children.props.children
-      : null
+      : null;
 
   const firstChild = React.isValidElement(componentChildren[0])
     ? componentChildren[0]
-    : null
+    : null;
 
   const targetWithOnClick = firstChild
     ? React.cloneElement(firstChild as ReactElement, { onClick: handleToggle })
-    : null
+    : null;
 
   const restOfChildren =
     componentChildren && Array.isArray(componentChildren)
       ? componentChildren.slice(1)
-      : null
+      : null;
 
   return (
     <div>
@@ -74,8 +74,8 @@ const render = function Component(props: PopoverProps) {
         {restOfChildren}
       </Popover>
     </div>
-  )
-}
+  );
+};
 
 const meta: Meta<PopoverProps> = {
   title: 'Components/Popover',
@@ -194,9 +194,9 @@ const meta: Meta<PopoverProps> = {
       control: { type: 'object' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<PopoverProps> = {
   args: {
@@ -213,7 +213,7 @@ export const Default: StoryObj<PopoverProps> = {
     ),
   },
   render,
-}
+};
 
 export const Disabled: StoryObj<PopoverProps> = {
   args: {
@@ -233,7 +233,7 @@ export const Disabled: StoryObj<PopoverProps> = {
     ),
   },
   render,
-}
+};
 
 export const CustomPosition: StoryObj<PopoverProps> = {
   args: {
@@ -253,7 +253,7 @@ export const CustomPosition: StoryObj<PopoverProps> = {
     ),
   },
   render,
-}
+};
 
 export const KeepMounted: StoryObj<PopoverProps> = {
   args: {
@@ -273,4 +273,4 @@ export const KeepMounted: StoryObj<PopoverProps> = {
     ),
   },
   render,
-}
+};

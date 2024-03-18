@@ -1,6 +1,6 @@
 // .storybook/YourTheme.js
 
-import { create } from '@storybook/theming/create'
+import { create } from '@storybook/theming/create';
 
 export default create({
   base: 'dark',
@@ -9,4 +9,4 @@ export default create({
   brandImage:
     'https://framerusercontent.com/images/AAmKW17l9jseK4hJPDy2uYxVEdU.png',
   brandTarget: '_self',
-})
+});

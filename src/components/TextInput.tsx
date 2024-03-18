@@ -3,13 +3,13 @@ import {
   clsx,
   createStyles,
   type TextInputProps as MantineTextInputProps,
-} from '@mantine/core'
-import { forwardRef, type ReactNode } from 'react'
-import { Controller, useFormContext } from 'react-hook-form'
+} from '@mantine/core';
+import { forwardRef, type ReactNode } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
 
 type StylesProps = {
-  variant: 'unstyled' | 'default' | 'filled'
-}
+  variant: 'unstyled' | 'default' | 'filled';
+};
 
 const useStyles = createStyles((theme, { variant }: StylesProps) => ({
   input: {
@@ -30,115 +30,115 @@ const useStyles = createStyles((theme, { variant }: StylesProps) => ({
       color: theme.colors?.error?.[0],
     },
   },
-}))
+}));
 
 export type TextInputProps = {
   /**
    * TextInput description
    */
-  description?: ReactNode
+  description?: ReactNode;
   /**
    * TextInput props spread to description element
    */
-  descriptionProps?: Record<string, any>
+  descriptionProps?: Record<string, any>;
   /**
    * TextInput disabled state
    */
-  disabled?: boolean
+  disabled?: boolean;
   /**
    * TextInput should display error message
    */
-  error?: ReactNode
+  error?: ReactNode;
   /**
    * TextInput props added to error element
    */
-  errorProps?: Record<string, any>
+  errorProps?: Record<string, any>;
   /**
    * TextInput icon on the left side of the input
    */
-  icon?: ReactNode
+  icon?: ReactNode;
   /**
    * TextInput width of the icon section
    */
-  iconWidth?: string | number
+  iconWidth?: string | number;
 
   /**
    * TextInput container component (defaults to React.Fragment)
    */
-  inputContainer?: (children: ReactNode) => ReactNode
+  inputContainer?: (children: ReactNode) => ReactNode;
   /**
    * TextInput onChange handler
    */
-  onChange?: (value: string) => void
+  onChange?: (value: string) => void;
   /**
    * Controls order of the TextInput.Wrapper elements
    */
-  inputWrapperOrder?: ('input' | 'label' | 'error' | 'description')[]
+  inputWrapperOrder?: ('input' | 'label' | 'error' | 'description')[];
   /**
    * TextInput label
    */
-  label?: ReactNode
+  label?: ReactNode;
   /**
    * TextInput props add to label element
    */
-  labelProps?: Record<string, any>
+  labelProps?: Record<string, any>;
   /**
    * TextInput radius size (key of theme.radius)
    */
-  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
    * TextInput should be required
    */
-  required?: boolean
+  required?: boolean;
   /**
    * TextInput right section, similar to icon but on the right
    */
-  rightSection?: ReactNode
+  rightSection?: ReactNode;
   /**
    * Props spread to rightSection div element
    */
-  rightSectionProps?: Record<string, any>
+  rightSectionProps?: Record<string, any>;
   /**
    * TextInput width of right section, is used to calculate input padding-right
    */
-  rightSectionWidth?: string | number
+  rightSectionWidth?: string | number;
   /**
    * TextInput size
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**
    * TextInput element type
    */
-  type?: string
+  type?: string;
   /**
    * TextInput variant
    */
-  variant?: 'unstyled' | 'default' | 'filled'
+  variant?: 'unstyled' | 'default' | 'filled';
   /**
    * TextInput should required asterisk be rendered, overrides required prop, does not add required attribute to the input
    */
-  withAsterisk?: boolean
+  withAsterisk?: boolean;
   /**
    * TextInput props added to root element (TextInputWrapper component)
    */
-  wrapperProps?: Record<string, any>
+  wrapperProps?: Record<string, any>;
   /**
    * TextInput name attribute (used with forms)
    */
-  name?: string
+  name?: string;
   /**
    * TextInput should use Controller from react-hook-form
    */
-  useController?: boolean
+  useController?: boolean;
   /**
    * Controlled input value
    */
-  value?: string
+  value?: string;
   /**
    * TextInput class name
    */
-  className?: string
-} & Omit<MantineTextInputProps, 'onChange'>
+  className?: string;
+} & Omit<MantineTextInputProps, 'onChange'>;
 
 export const TextInput = forwardRef(
   (
@@ -154,14 +154,14 @@ export const TextInput = forwardRef(
     }: TextInputProps,
     ref: React.Ref<HTMLInputElement>,
   ) => {
-    const context = useFormContext()
+    const context = useFormContext();
 
-    const { classes } = useStyles({ variant })
+    const { classes } = useStyles({ variant });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.target.value
-      onChange(value)
-    }
+      const value = event.target.value;
+      onChange(value);
+    };
 
     if (useController && name && context) {
       return (
@@ -175,8 +175,8 @@ export const TextInput = forwardRef(
               size={size}
               value={field.value}
               onChange={(e) => {
-                field.onChange(e)
-                handleChange(e)
+                field.onChange(e);
+                handleChange(e);
               }}
               onBlur={field.onBlur}
               className={clsx(classes.input, className)}
@@ -184,7 +184,7 @@ export const TextInput = forwardRef(
             />
           )}
         />
-      )
+      );
     }
 
     return (
@@ -198,6 +198,6 @@ export const TextInput = forwardRef(
         className={clsx(classes.input, className)}
         ref={ref}
       />
-    )
+    );
   },
-)
+);

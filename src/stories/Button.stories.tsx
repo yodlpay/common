@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '../components/Button'
-import { Ethereum, Polygon } from 'react-web3-icons'
-import { SIZE_OPTIONS } from '../styles'
-import { type Variants } from '@mantine/core'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from '../components/Button';
+import { Ethereum, Polygon } from 'react-web3-icons';
+import { SIZE_OPTIONS } from '../styles';
+import { type Variants } from '@mantine/core';
 
 const defaults = {
   color: 'brand.0',
@@ -28,7 +28,7 @@ const defaults = {
   type: 'button' as 'button' | 'submit' | 'reset',
   uppercase: false,
   fontWeight: 600,
-}
+};
 
 const meta = {
   title: 'Components/Button',
@@ -78,17 +78,17 @@ const meta = {
     fontSize: { type: 'number' },
     fontWeight: { type: 'number' },
   },
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof Button>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
     ...defaults,
     children: 'Primary button',
   },
-}
+};
 
 export const Secondary: Story = {
   args: {
@@ -96,7 +96,7 @@ export const Secondary: Story = {
     children: 'Secondary button',
     color: 'secondary',
   },
-}
+};
 
 export const Small: Story = {
   args: {
@@ -104,7 +104,7 @@ export const Small: Story = {
     children: 'Small button',
     size: 'sm',
   },
-}
+};
 
 export const Large: Story = {
   args: {
@@ -112,7 +112,7 @@ export const Large: Story = {
     children: 'Large button',
     size: 'lg',
   },
-}
+};
 
 export const LeftIcon: Story = {
   args: {
@@ -120,7 +120,7 @@ export const LeftIcon: Story = {
     children: 'Button with left icon',
     leftIcon: <Ethereum fontSize={18} />,
   },
-}
+};
 
 export const RightIcon: Story = {
   args: {
@@ -128,7 +128,7 @@ export const RightIcon: Story = {
     children: 'Button with right icon',
     rightIcon: <Polygon fontSize={18} />,
   },
-}
+};
 
 export const Unstyled: Story = {
   args: {
@@ -136,4 +136,4 @@ export const Unstyled: Story = {
     children: 'Unstyled button',
     variant: 'unstyled',
   },
-}
+};

@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Box, type BoxProps } from '../components/Box'
-import { type MantineTheme } from '@mantine/core'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Box, type BoxProps } from '../components/Box';
+import { type MantineTheme } from '@mantine/core';
 
 const meta: Meta<BoxProps> = {
   title: 'Components/Box',
@@ -12,9 +12,9 @@ const meta: Meta<BoxProps> = {
       defaultValue: 'div',
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<BoxProps> = {
   args: {
@@ -34,7 +34,7 @@ export const Default: StoryObj<BoxProps> = {
       },
     }),
   },
-}
+};
 
 export const AsAnchor: StoryObj<BoxProps> = {
   args: {
@@ -54,4 +54,4 @@ export const AsAnchor: StoryObj<BoxProps> = {
       },
     }),
   },
-}
+};

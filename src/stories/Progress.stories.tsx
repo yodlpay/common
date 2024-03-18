@@ -1,16 +1,16 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Progress, type ProgressProps } from '../components/Progress'
-import { SIZE_OPTIONS } from '../styles'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Progress, type ProgressProps } from '../components/Progress';
+import { SIZE_OPTIONS } from '../styles';
 
 const defaults: ProgressProps = {
   color: 'brand.0',
   size: 'md',
   value: 50,
-}
+};
 
 const render = function Component(args: ProgressProps) {
-  return <Progress {...args} />
-}
+  return <Progress {...args} />;
+};
 
 const meta: Meta<ProgressProps> = {
   title: 'Components/Progress',
@@ -45,14 +45,14 @@ const meta: Meta<ProgressProps> = {
       description: 'Percent of filled bar (0-100).',
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<typeof meta> = {
   args: defaults,
   render,
-}
+};
 
 export const Striped: StoryObj<typeof meta> = {
   args: {
@@ -60,7 +60,7 @@ export const Striped: StoryObj<typeof meta> = {
     striped: true,
   },
   render,
-}
+};
 
 export const Animated: StoryObj<typeof meta> = {
   args: {
@@ -69,4 +69,4 @@ export const Animated: StoryObj<typeof meta> = {
     animate: true,
   },
   render,
-}
+};

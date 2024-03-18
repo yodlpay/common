@@ -1,7 +1,7 @@
-import { useArgs } from '@storybook/preview-api'
-import type { Meta, StoryObj } from '@storybook/react'
-import { SIZE_OPTIONS } from '../styles'
-import { Chip, type ChipProps } from '../components/Chip'
+import { useArgs } from '@storybook/preview-api';
+import type { Meta, StoryObj } from '@storybook/react';
+import { SIZE_OPTIONS } from '../styles';
+import { Chip, type ChipProps } from '../components/Chip';
 
 const defaults = {
   checked: false,
@@ -11,17 +11,17 @@ const defaults = {
   type: 'checkbox' as 'checkbox' | 'radio',
   variant: 'outline' as 'outline' | 'light' | 'filled',
   name: 'chip',
-}
+};
 
 const render = function Component(args: ChipProps) {
-  const [, setArgs] = useArgs()
+  const [, setArgs] = useArgs();
 
   const handleChange = (checked: boolean) => {
-    setArgs({ checked })
-  }
+    setArgs({ checked });
+  };
 
-  return <Chip {...args} onChange={handleChange} />
-}
+  return <Chip {...args} onChange={handleChange} />;
+};
 
 const meta = {
   title: 'Components/Chip',
@@ -51,10 +51,10 @@ const meta = {
       control: { type: 'boolean' },
     },
   },
-} satisfies Meta<typeof Chip>
+} satisfies Meta<typeof Chip>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
   args: {
@@ -62,7 +62,7 @@ export const Primary: Story = {
     children: 'Primary chip',
   },
   render,
-}
+};
 
 export const Secondary: Story = {
   args: {
@@ -71,7 +71,7 @@ export const Secondary: Story = {
     color: 'secondary',
   },
   render,
-}
+};
 
 export const Small: Story = {
   args: {
@@ -80,7 +80,7 @@ export const Small: Story = {
     size: 'sm',
   },
   render,
-}
+};
 
 export const Large: Story = {
   args: {
@@ -89,7 +89,7 @@ export const Large: Story = {
     size: 'lg',
   },
   render,
-}
+};
 
 export const Checkbox: Story = {
   args: {
@@ -98,7 +98,7 @@ export const Checkbox: Story = {
     type: 'checkbox',
   },
   render,
-}
+};
 
 export const Radio: Story = {
   args: {
@@ -107,4 +107,4 @@ export const Radio: Story = {
     type: 'radio',
   },
   render,
-}
+};

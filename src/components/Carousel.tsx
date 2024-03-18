@@ -2,12 +2,12 @@ import {
   Carousel as MantineCarousel,
   type Embla,
   type CarouselProps as MantineCarouselProps,
-} from '@mantine/carousel'
-import { createStyles } from '@mantine/core'
-import Autoplay from 'embla-carousel-autoplay'
-import { useRef, useState, type ReactNode } from 'react'
+} from '@mantine/carousel';
+import { createStyles } from '@mantine/core';
+import Autoplay from 'embla-carousel-autoplay';
+import { useRef, useState, type ReactNode } from 'react';
 
-const SLIDE_IDENTIFIER = 'slide'
+const SLIDE_IDENTIFIER = 'slide';
 
 const useStyles = createStyles(() => ({
   activeSlide: {
@@ -18,133 +18,133 @@ const useStyles = createStyles(() => ({
     opacity: 0.5,
     transition: 'opacity 300ms ease',
   },
-}))
+}));
 
 type CarouselBreakpoint = {
-  maxWidth: string
-  slideSize: string
-}
+  maxWidth: string;
+  slideSize: string;
+};
 
 export type CarouselProps = {
   /** Determines how slides will be aligned relative to the container. */
-  align?: number | 'center' | 'end' | 'start'
+  align?: number | 'center' | 'end' | 'start';
 
   /** Control slideSize and slideGap at different viewport sizes */
-  breakpoints?: CarouselBreakpoint[]
+  breakpoints?: CarouselBreakpoint[];
 
   /** `<Carousel.Slide />` components */
-  children?: ReactNode
+  children?: ReactNode;
 
   /** Clear leading and trailing empty space that causes excessive scrolling. */
-  containScroll?: '' | 'trimSnaps' | 'keepSnaps'
+  containScroll?: '' | 'trimSnaps' | 'keepSnaps';
 
   /** Previous/next controls size */
-  controlSize?: number
+  controlSize?: number;
 
   /** Key of theme.spacing or number to set space between next/previous control and carousel boundary */
-  controlsOffset?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  controlsOffset?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /** Carousel contents */
-  data?: ReactNode[]
+  data?: ReactNode[];
 
   /** Determines whether momentum scrolling should be enabled. */
-  dragFree?: boolean
+  dragFree?: boolean;
 
   /** Determines whether carousel can be scrolled with mouse and touch interactions. */
-  draggable?: boolean
+  draggable?: boolean;
 
   /** Determines whether carousel slides can be clicked. */
-  clickable?: boolean
+  clickable?: boolean;
 
   /** Get embla API as ref */
-  getEmblaApi?: (embla: Embla) => void
+  getEmblaApi?: (embla: Embla) => void;
 
   /** Slides container height, required for vertical orientation */
-  height?: string | number
+  height?: string | number;
 
   /** Choose a fraction representing the percentage portion of a slide that needs to be visible in order to be considered in view. */
-  inViewThreshold?: number
+  inViewThreshold?: number;
 
   /** Determines whether gap should be treated as part of the slide size. */
-  includeGapInSize?: boolean
+  includeGapInSize?: boolean;
 
   /** Index of initial slide */
-  initialSlide?: number
+  initialSlide?: number;
 
   /** Enables infinite looping. */
-  loop?: boolean
+  loop?: boolean;
 
   /** Icon of next control */
-  nextControlIcon?: ReactNode
+  nextControlIcon?: ReactNode;
 
   /** Next control aria-label */
-  nextControlLabel?: string
+  nextControlLabel?: string;
 
   /** Called when user clicks next button */
-  onNextSlide?: () => void
+  onNextSlide?: () => void;
 
   /** Called when user clicks previous button */
-  onPreviousSlide?: () => void
+  onPreviousSlide?: () => void;
 
   /** Called with slide index when slide changes */
-  onSlideChange?: (index: number) => void
+  onSlideChange?: (index: number) => void;
 
   /** Carousel orientation */
-  orientation?: 'horizontal' | 'vertical'
+  orientation?: 'horizontal' | 'vertical';
 
   /** An array of embla plugins */
-  plugins?: unknown[]
+  plugins?: unknown[];
 
   /** Previous control icon */
-  previousControlIcon?: ReactNode
+  previousControlIcon?: ReactNode;
 
   /** Previous control aria-label */
-  previousControlLabel?: string
+  previousControlLabel?: string;
 
   /** Allow the carousel to skip scroll snaps if it's dragged vigorously. */
-  skipSnaps?: boolean
+  skipSnaps?: boolean;
 
   /** Key of theme.spacing or number to set gap between slides */
-  slideGap?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  slideGap?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /** Slide width */
-  slideSize?: string | number
+  slideSize?: string | number;
 
   /** Number of slides that should be scrolled with next/previous buttons */
-  slidesToScroll?: number | 'auto'
+  slidesToScroll?: number | 'auto';
 
   /** Adjusts scroll speed when triggered by any of the methods. */
-  speed?: number
+  speed?: number;
 
   /** Determines whether next/previous controls should be displayed. */
-  withControls?: boolean
+  withControls?: boolean;
 
   /** Determines whether indicators should be displayed. */
-  withIndicators?: boolean
+  withIndicators?: boolean;
 
   /** Determines whether carousel should autoplay */
-  withAutoplay?: boolean
+  withAutoplay?: boolean;
 
   /** Determines autoplay delay if withAutoplay is set */
-  autoplayDelay?: number
+  autoplayDelay?: number;
 
   /** Determines whether arrow key should switch slides. */
-  withKeyboardEvents?: boolean
+  withKeyboardEvents?: boolean;
 
   /** NavLink class name */
-  className?: string
-} & Omit<MantineCarouselProps, 'children'>
+  className?: string;
+} & Omit<MantineCarouselProps, 'children'>;
 
 export type CarouselSlideProps = {
   /** Slide content */
-  children: ReactNode
+  children: ReactNode;
 
   /** Key of theme.spacing or number to set gap between slides */
-  gap?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  gap?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /** Slide width */
-  size?: string | number
-}
+  size?: string | number;
+};
 
 export const Carousel = ({
   data,
@@ -161,31 +161,31 @@ export const Carousel = ({
   autoplayDelay = 2000,
   ...props
 }: CarouselProps) => {
-  const [currentSlide, setCurrentSlide] = useState(initialSlide)
+  const [currentSlide, setCurrentSlide] = useState(initialSlide);
   const autoplay = useRef(
     Autoplay({ delay: autoplayDelay, stopOnInteraction: false }),
-  )
-  const [embla, setEmbla] = useState<Embla | null>(null)
+  );
+  const [embla, setEmbla] = useState<Embla | null>(null);
 
-  const { classes } = useStyles()
+  const { classes } = useStyles();
 
   const handleSlideChange = (slide: number) => {
-    setCurrentSlide(slide)
-  }
+    setCurrentSlide(slide);
+  };
 
   const handleClick = (e: any) => {
-    const slideElement = e.target.closest('.mantine-Carousel-slide')
+    const slideElement = e.target.closest('.mantine-Carousel-slide');
 
     if (slideElement) {
-      const slide = slideElement.id.split(SLIDE_IDENTIFIER)?.[1]
-      const slideId = parseInt(slide ?? '-1')
+      const slide = slideElement.id.split(SLIDE_IDENTIFIER)?.[1];
+      const slideId = parseInt(slide ?? '-1');
 
       if (embla && slideId > -1 && slideId !== currentSlide) {
-        embla.scrollTo(slideId)
-        setCurrentSlide(slideId)
+        embla.scrollTo(slideId);
+        setCurrentSlide(slideId);
       }
     }
-  }
+  };
 
   return (
     <MantineCarousel
@@ -217,5 +217,5 @@ export const Carousel = ({
           </MantineCarousel.Slide>
         ))}
     </MantineCarousel>
-  )
-}
+  );
+};

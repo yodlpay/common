@@ -1,22 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { NumberInput, type NumberInputProps } from '../components/NumberInput'
-import { CurrencyDollarIcon } from '@heroicons/react/24/outline'
-import { useArgs } from '@storybook/preview-api'
+import type { Meta, StoryObj } from '@storybook/react';
+import { NumberInput, type NumberInputProps } from '../components/NumberInput';
+import { CurrencyDollarIcon } from '@heroicons/react/24/outline';
+import { useArgs } from '@storybook/preview-api';
 
 const defaults: NumberInputProps = {
   type: 'text',
   size: 'md',
-}
+};
 
 const render = function Component(args: NumberInputProps) {
-  const [, setArgs] = useArgs()
+  const [, setArgs] = useArgs();
 
   const handleChange = (value: number | string) => {
-    setArgs({ value })
-  }
+    setArgs({ value });
+  };
 
-  return <NumberInput {...args} onChange={handleChange} />
-}
+  return <NumberInput {...args} onChange={handleChange} />;
+};
 
 const meta: Meta<NumberInputProps> = {
   title: 'Components/NumberInput',
@@ -92,9 +92,9 @@ const meta: Meta<NumberInputProps> = {
       description: 'Disabled input state',
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<NumberInputProps> = {
   args: {
@@ -102,7 +102,7 @@ export const Default: StoryObj<NumberInputProps> = {
     value: 50,
   },
   render,
-}
+};
 
 export const WithIcons: StoryObj<NumberInputProps> = {
   args: {
@@ -111,7 +111,7 @@ export const WithIcons: StoryObj<NumberInputProps> = {
     icon: <CurrencyDollarIcon width="20px" height="20px" />,
   },
   render,
-}
+};
 
 export const WithPrecision: StoryObj<NumberInputProps> = {
   args: {
@@ -120,7 +120,7 @@ export const WithPrecision: StoryObj<NumberInputProps> = {
     precision: 2,
   },
   render,
-}
+};
 
 export const WithinRange: StoryObj<NumberInputProps> = {
   args: {
@@ -130,7 +130,7 @@ export const WithinRange: StoryObj<NumberInputProps> = {
     max: 100,
   },
   render,
-}
+};
 
 export const ThousandSeparators: StoryObj<NumberInputProps> = {
   args: {
@@ -139,7 +139,7 @@ export const ThousandSeparators: StoryObj<NumberInputProps> = {
     thousandsSeparator: ',',
   },
   render,
-}
+};
 
 export const StepInterval: StoryObj<NumberInputProps> = {
   args: {
@@ -148,7 +148,7 @@ export const StepInterval: StoryObj<NumberInputProps> = {
     step: 10,
   },
   render,
-}
+};
 
 export const Disabled: StoryObj<NumberInputProps> = {
   args: {
@@ -157,4 +157,4 @@ export const Disabled: StoryObj<NumberInputProps> = {
     disabled: true,
   },
   render,
-}
+};

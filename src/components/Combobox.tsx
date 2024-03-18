@@ -4,16 +4,16 @@ import {
   createStyles,
   rem,
   type SelectItem,
-} from '@mantine/core'
-import { forwardRef, useRef } from 'react'
-import { Controller, useFormContext } from 'react-hook-form'
-import { NumberInput, type NumberInputProps } from './NumberInput'
-import { TextInput, type TextInputProps } from './TextInput'
+} from '@mantine/core';
+import { forwardRef, useRef } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
+import { NumberInput, type NumberInputProps } from './NumberInput';
+import { TextInput, type TextInputProps } from './TextInput';
 
 type StylesProps = {
-  variant: 'unstyled' | 'default' | 'filled'
-  width: number
-}
+  variant: 'unstyled' | 'default' | 'filled';
+  width: number;
+};
 
 const useStyles = createStyles((theme, { variant, width }: StylesProps) => ({
   input: {
@@ -81,55 +81,55 @@ const useStyles = createStyles((theme, { variant, width }: StylesProps) => ({
       borderBottomLeftRadius: 0,
     },
   },
-}))
+}));
 
 export type ComboboxProps = {
   /**
    * Combobox data
    */
-  data: SelectItem[]
+  data: SelectItem[];
   /**
    * Combobox input onChange handler
    */
-  onInputChange?: (value: string | number) => void
+  onInputChange?: (value: string | number) => void;
   /**
    * Combobox select onChange handler
    */
-  onSelectChange?: (value: string) => void
+  onSelectChange?: (value: string) => void;
   /**
    * Combobox input name attribute (used with forms)
    */
-  inputName?: string
+  inputName?: string;
   /**
    * Combobox select name attribute (used with forms)
    */
-  selectName?: string
+  selectName?: string;
   /**
    * Combobox should use Controller from react-hook-form
    */
-  useController?: boolean
+  useController?: boolean;
   /**
    * Controlled input value
    */
-  inputValue?: string | number
+  inputValue?: string | number;
   /**
    * Controlled select value
    */
-  selectValue?: string
+  selectValue?: string;
   /**
    * Combobox input class name
    */
-  inputClassName?: string
+  inputClassName?: string;
 
   /**
    * Combobox select class name
    */
-  selectClassName?: string
+  selectClassName?: string;
   /**
    * Combobox input type
    */
-  inputType?: 'text' | 'number'
-} & (TextInputProps & NumberInputProps)
+  inputType?: 'text' | 'number';
+} & (TextInputProps & NumberInputProps);
 
 const renderInput = (
   inputType: 'text' | 'number',
@@ -144,8 +144,8 @@ const renderInput = (
       inputMode="numeric"
       ref={inputRef}
     />
-  )
-}
+  );
+};
 
 export const Combobox = forwardRef(
   (
@@ -167,24 +167,24 @@ export const Combobox = forwardRef(
     }: ComboboxProps,
     ref: React.Ref<HTMLInputElement>,
   ) => {
-    const context = useFormContext()
+    const context = useFormContext();
 
-    const selectRef = useRef<HTMLSelectElement | null>(null)
+    const selectRef = useRef<HTMLSelectElement | null>(null);
 
-    const width = (selectRef?.current?.offsetWidth ?? 0) + 14
+    const width = (selectRef?.current?.offsetWidth ?? 0) + 14;
 
-    const { classes } = useStyles({ variant, width })
+    const { classes } = useStyles({ variant, width });
 
     const handleInputChange = (value: string | number) => {
-      onInputChange(value)
-    }
+      onInputChange(value);
+    };
 
     const handleSelectChange = (
       event: React.ChangeEvent<HTMLSelectElement>,
     ) => {
-      const value = event.target.value
-      onSelectChange(value)
-    }
+      const value = event.target.value;
+      onSelectChange(value);
+    };
 
     const select = (
       <NativeSelect
@@ -195,7 +195,7 @@ export const Combobox = forwardRef(
         onChange={handleSelectChange}
         className={clsx(classes.select, selectClassName)}
       />
-    )
+    );
 
     if (useController && inputName && selectName && context) {
       const select = (
@@ -208,8 +208,8 @@ export const Combobox = forwardRef(
               data={data}
               value={field.value}
               onChange={(e) => {
-                handleSelectChange(e)
-                field.onChange(e)
+                handleSelectChange(e);
+                field.onChange(e);
               }}
               onBlur={field.onBlur}
               variant={variant}
@@ -217,7 +217,7 @@ export const Combobox = forwardRef(
             />
           )}
         />
-      )
+      );
 
       return renderInput(inputType, ref, {
         ...props,
@@ -227,7 +227,7 @@ export const Combobox = forwardRef(
         size,
         rightSection: select,
         className: clsx(classes.input, inputClassName),
-      } as TextInputProps | NumberInputProps)
+      } as TextInputProps | NumberInputProps);
     }
 
     return renderInput(inputType, ref, {
@@ -238,6 +238,6 @@ export const Combobox = forwardRef(
       rightSection: select,
       onChange: handleInputChange,
       className: clsx(classes.input, inputClassName),
-    } as TextInputProps | NumberInputProps)
+    } as TextInputProps | NumberInputProps);
   },
-)
+);

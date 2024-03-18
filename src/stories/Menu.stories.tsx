@@ -1,8 +1,8 @@
-import { useArgs } from '@storybook/preview-api'
-import type { Meta, StoryObj } from '@storybook/react'
-import { MetaMask } from 'react-web3-icons'
-import { Menu, type MenuProps } from '../components/Menu'
-import { Button } from '../components/Button'
+import { useArgs } from '@storybook/preview-api';
+import type { Meta, StoryObj } from '@storybook/react';
+import { MetaMask } from 'react-web3-icons';
+import { Menu, type MenuProps } from '../components/Menu';
+import { Button } from '../components/Button';
 
 const defaults: MenuProps = {
   opened: false,
@@ -14,17 +14,17 @@ const defaults: MenuProps = {
     { id: '4', divider: true },
     { id: '5', item: 'Item 3' },
   ],
-}
+};
 
 const render = function Component(props: MenuProps) {
-  const [args, setArgs] = useArgs()
+  const [args, setArgs] = useArgs();
 
   const handleChange = (opened: boolean) => {
-    setArgs({ opened })
-  }
+    setArgs({ opened });
+  };
 
-  return <Menu {...props} opened={args.opened} onChange={handleChange} />
-}
+  return <Menu {...props} opened={args.opened} onChange={handleChange} />;
+};
 
 const meta: Meta<MenuProps> = {
   title: 'Components/Menu',
@@ -134,16 +134,16 @@ const meta: Meta<MenuProps> = {
       control: { type: 'number' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<MenuProps> = {
   args: {
     ...defaults,
   },
   render,
-}
+};
 
 export const WithArrow: StoryObj<MenuProps> = {
   args: {
@@ -151,7 +151,7 @@ export const WithArrow: StoryObj<MenuProps> = {
     withArrow: true,
   },
   render,
-}
+};
 
 export const RightPositioned: StoryObj<MenuProps> = {
   args: {
@@ -159,7 +159,7 @@ export const RightPositioned: StoryObj<MenuProps> = {
     position: 'right',
   },
   render,
-}
+};
 
 export const WithIcons: StoryObj<MenuProps> = {
   args: {
@@ -173,7 +173,7 @@ export const WithIcons: StoryObj<MenuProps> = {
     ],
   },
   render,
-}
+};
 
 export const HoverTrigger: StoryObj<MenuProps> = {
   args: {
@@ -181,4 +181,4 @@ export const HoverTrigger: StoryObj<MenuProps> = {
     trigger: 'hover',
   },
   render,
-}
+};

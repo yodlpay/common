@@ -1,8 +1,8 @@
-import { createStyles } from '@mantine/core'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Usdc } from 'react-web3-icons'
-import { Checkbox, type CheckboxProps } from '../components/Checkbox'
-import { useArgs } from '@storybook/preview-api'
+import { createStyles } from '@mantine/core';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Usdc } from 'react-web3-icons';
+import { Checkbox, type CheckboxProps } from '../components/Checkbox';
+import { useArgs } from '@storybook/preview-api';
 
 const useStyles = createStyles(() => ({
   group: {
@@ -10,14 +10,14 @@ const useStyles = createStyles(() => ({
     flexDirection: 'column',
     gap: '8px',
   },
-}))
+}));
 
 const StyleProvider: React.FC<{
-  children: (classes: ReturnType<typeof useStyles>) => JSX.Element
+  children: (classes: ReturnType<typeof useStyles>) => JSX.Element;
 }> = ({ children }) => {
-  const classes = useStyles()
-  return children(classes)
-}
+  const classes = useStyles();
+  return children(classes);
+};
 
 const defaults: CheckboxProps = {
   color: 'brand.0',
@@ -25,17 +25,17 @@ const defaults: CheckboxProps = {
   labelPosition: 'right',
   size: 'md',
   checked: false,
-}
+};
 
 const render = function Component(args: CheckboxProps) {
-  const [, setArgs] = useArgs()
+  const [, setArgs] = useArgs();
 
   const handleChange = (checked: boolean) => {
-    setArgs({ checked })
-  }
+    setArgs({ checked });
+  };
 
-  return <Checkbox {...args} onChange={handleChange} />
-}
+  return <Checkbox {...args} onChange={handleChange} />;
+};
 
 const meta: Meta<CheckboxProps> = {
   title: 'Components/Checkbox',
@@ -55,16 +55,16 @@ const meta: Meta<CheckboxProps> = {
       control: { type: 'select' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<CheckboxProps> = {
   args: {
     ...defaults,
   },
   render,
-}
+};
 
 export const WithDescription: StoryObj<CheckboxProps> = {
   args: {
@@ -72,7 +72,7 @@ export const WithDescription: StoryObj<CheckboxProps> = {
     description: 'Sample description',
   },
   render,
-}
+};
 
 export const WithIcon: StoryObj<CheckboxProps> = {
   args: {
@@ -80,7 +80,7 @@ export const WithIcon: StoryObj<CheckboxProps> = {
     icon: <Usdc width="16px" height="16px" />,
   },
   render,
-}
+};
 
 export const WithError: StoryObj<CheckboxProps> = {
   args: {
@@ -88,7 +88,7 @@ export const WithError: StoryObj<CheckboxProps> = {
     error: 'This is an error message',
   },
   render,
-}
+};
 
 export const Outline: StoryObj<CheckboxProps> = {
   args: {
@@ -97,7 +97,7 @@ export const Outline: StoryObj<CheckboxProps> = {
     icon: <Usdc width="16px" height="16px" />,
   },
   render,
-}
+};
 
 export const CheckboxGroupStory: StoryObj<CheckboxProps> = {
   render: () => (
@@ -111,6 +111,6 @@ export const CheckboxGroupStory: StoryObj<CheckboxProps> = {
       )}
     </StyleProvider>
   ),
-}
+};
 
-CheckboxGroupStory.storyName = 'Checkbox Group'
+CheckboxGroupStory.storyName = 'Checkbox Group';

@@ -1,8 +1,8 @@
-import { createStyles } from '@mantine/core'
-import type { Meta, StoryObj } from '@storybook/react'
-import { type ReactNode } from 'react'
-import { Dai, Ethereum, Matic, Usdc } from 'react-web3-icons'
-import { ListItem } from '../components/ListItem'
+import { createStyles } from '@mantine/core';
+import type { Meta, StoryObj } from '@storybook/react';
+import { type ReactNode } from 'react';
+import { Dai, Ethereum, Matic, Usdc } from 'react-web3-icons';
+import { ListItem } from '../components/ListItem';
 
 // TODO - WIP
 
@@ -18,10 +18,10 @@ const meta = {
     },
   },
   argTypes: {},
-} satisfies Meta<typeof ListItem>
+} satisfies Meta<typeof ListItem>;
 
-export default meta
-type Story = StoryObj<typeof meta>
+export default meta;
+type Story = StoryObj<typeof meta>;
 
 const useStyles = createStyles({
   tokenWrapper: {
@@ -29,17 +29,17 @@ const useStyles = createStyles({
       margin: '0 3px',
     },
   },
-})
+});
 
 type TokenWrapperProps = {
-  children: ReactNode
-}
+  children: ReactNode;
+};
 
 const TokenWrapper = ({ children }: TokenWrapperProps) => {
-  const { classes } = useStyles()
+  const { classes } = useStyles();
 
-  return <div className={classes.tokenWrapper}>{children}</div>
-}
+  return <div className={classes.tokenWrapper}>{children}</div>;
+};
 
 export const Primary: Story = {
   args: {
@@ -74,4 +74,4 @@ export const Primary: Story = {
     ],
     onClick: () => null,
   },
-}
+};

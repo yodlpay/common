@@ -13,10 +13,10 @@ import {
   type MantineSize,
   type SystemProp,
   type Variants,
-} from '@mantine/core'
-import { forwardRef, type ReactNode } from 'react'
-import { getColorFromProp } from '../styles'
-import type { ExtendedMantineSize } from '../types'
+} from '@mantine/core';
+import { forwardRef, type ReactNode } from 'react';
+import { getColorFromProp } from '../styles';
+import type { ExtendedMantineSize } from '../types';
 
 const HEIGHT_SIZE_MAPPER = {
   xs: rem(24),
@@ -24,7 +24,7 @@ const HEIGHT_SIZE_MAPPER = {
   md: rem(40),
   lg: rem(48),
   xl: rem(56),
-} as Record<ExtendedMantineSize, string>
+} as Record<ExtendedMantineSize, string>;
 
 const FONT_SIZE_MAPPER = {
   xs: rem(13),
@@ -32,7 +32,7 @@ const FONT_SIZE_MAPPER = {
   md: rem(15),
   lg: rem(15),
   xl: rem(15),
-} as Record<ExtendedMantineSize, string>
+} as Record<ExtendedMantineSize, string>;
 
 type ButtonVariant = Variants<
   | 'outline'
@@ -44,17 +44,17 @@ type ButtonVariant = Variants<
   | 'subtle'
   | 'link'
   | 'unstyled'
->
+>;
 
 type StylesProps = {
-  variant: ButtonVariant
-  color: MantineColor
-  radius: MantineNumberSize
-  size: MantineSize
-  fontSize?: number
-  fontWeight?: number
-  c?: SystemProp<MantineColor>
-}
+  variant: ButtonVariant;
+  color: MantineColor;
+  radius: MantineNumberSize;
+  size: MantineSize;
+  fontSize?: number;
+  fontWeight?: number;
+  c?: SystemProp<MantineColor>;
+};
 
 const useStyles = createStyles(
   (
@@ -94,90 +94,90 @@ const useStyles = createStyles(
       }),
     },
   }),
-)
+);
 
 export type ButtonProps = {
   /**
    * Button variant
    */
-  variant?: ButtonVariant
+  variant?: ButtonVariant;
   /**
    * Button type
    */
-  type?: 'button' | 'submit' | 'reset'
+  type?: 'button' | 'submit' | 'reset';
   /**
    * Button text-transform property
    */
-  uppercase?: boolean
+  uppercase?: boolean;
   /**
    * Button size
    */
-  size?: MantineSize
+  size?: MantineSize;
   /**
    * Button border radius
    */
-  radius?: MantineNumberSize
+  radius?: MantineNumberSize;
   /**
    * Button right side icon
    */
-  rightIcon?: ReactNode
+  rightIcon?: ReactNode;
   /**
    * Button left side icon
    */
-  leftIcon?: ReactNode
+  leftIcon?: ReactNode;
   /**
    * Button loading state
    */
-  loading?: boolean
+  loading?: boolean;
   /**
    * Button loader position
    */
-  loaderPosition?: 'left' | 'right' | 'center'
+  loaderPosition?: 'left' | 'right' | 'center';
   /**
    * Button props added to Loader component
    */
-  loaderProps?: LoaderProps
+  loaderProps?: LoaderProps;
   /**
    * Button width (100% of parent element or auto)
    */
-  fullWidth?: boolean
+  fullWidth?: boolean;
   /**
    * Button gradient (applies to gradient variant only)
    */
-  gradient?: MantineGradient
+  gradient?: MantineGradient;
   /**
    * Button disabled state
    */
-  disabled?: boolean
+  disabled?: boolean;
   /**
    * Button compact state
    */
-  compact?: boolean
+  compact?: boolean;
   /**
    * Button color (key of theme.colors)
    */
-  color?: MantineColor
+  color?: MantineColor;
   /**
    * Button font size
    */
-  fontSize?: number
+  fontSize?: number;
   /**
    * Button font weight
    */
-  fontWeight?: number
+  fontWeight?: number;
   /**
    * Button contents
    */
-  children: ReactNode
+  children: ReactNode;
   /**
    * Button click handler
    */
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   /**
    * Button class name
    */
-  className?: string
-} & MantineButtonProps
+  className?: string;
+} & MantineButtonProps;
 /**
  * Primary UI component for user interaction
  */
@@ -207,7 +207,7 @@ export const ButtonBlueprint = forwardRef(
       fontSize,
       fontWeight,
       c,
-    })
+    });
 
     if (variant === 'unstyled') {
       return (
@@ -219,7 +219,7 @@ export const ButtonBlueprint = forwardRef(
         >
           {children}
         </UnstyledButton>
-      )
+      );
     }
 
     return (
@@ -235,10 +235,10 @@ export const ButtonBlueprint = forwardRef(
       >
         {children}
       </MantineButton>
-    )
+    );
   },
-)
+);
 
 export const Button = createPolymorphicComponent<'button', ButtonProps>(
   ButtonBlueprint,
-)
+);

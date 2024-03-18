@@ -3,11 +3,11 @@ import {
   createStyles,
   type ChipProps as MantineChipProps,
   clsx,
-} from '@mantine/core'
-import { forwardRef, type ReactNode } from 'react'
-import { Controller, useFormContext } from 'react-hook-form'
-import { type ExtendedMantineSize } from '../types'
-import { px } from '@mantine/core'
+} from '@mantine/core';
+import { forwardRef, type ReactNode } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
+import { type ExtendedMantineSize } from '../types';
+import { px } from '@mantine/core';
 
 const paddingSizes = {
   xs: px('1rem'),
@@ -15,11 +15,11 @@ const paddingSizes = {
   md: px('1.5rem'),
   lg: px('1.75rem'),
   xl: px('2rem'),
-} as Record<ExtendedMantineSize, number>
+} as Record<ExtendedMantineSize, number>;
 
 type StylesProps = {
-  size: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
-}
+  size: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+};
 
 const useStyles = createStyles((theme, { size }: StylesProps) => {
   return {
@@ -34,71 +34,71 @@ const useStyles = createStyles((theme, { size }: StylesProps) => {
         },
       },
     },
-  }
-})
+  };
+});
 
 export type ChipProps = {
   /**
    * Chip checked state
    */
-  checked?: boolean
+  checked?: boolean;
 
   /**
    * Chip label
    */
-  children: ReactNode
+  children: ReactNode;
 
   /**
    * Chip color
    */
-  color?: string
+  color?: string;
 
   /**
    * Chip id to bind input with label
    */
-  id?: string
+  id?: string;
 
   /**
    * Chip radius size (key of theme.radius)
    */
-  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Chip size
    */
-  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Chip input type
    */
-  type?: 'checkbox' | 'radio'
+  type?: 'checkbox' | 'radio';
 
   /**
    * Chip variant
    */
-  variant?: 'outline' | 'light' | 'filled'
+  variant?: 'outline' | 'light' | 'filled';
 
   /**
    * Chip props added to wrapper element
    */
-  wrapperProps?: Record<string, any>
+  wrapperProps?: Record<string, any>;
   /**
    * Chip onChange handler
    */
-  onChange?: (value: boolean) => void
+  onChange?: (value: boolean) => void;
   /**
    * Chip name attribute (used with forms)
    */
-  name?: string
+  name?: string;
   /**
    * Chip should use Controller from react-hook-form
    */
-  useController?: boolean
+  useController?: boolean;
   /**
    * Chip class name
    */
-  className?: string
-} & MantineChipProps
+  className?: string;
+} & MantineChipProps;
 
 /**
  * Chip component for user interaction
@@ -117,8 +117,8 @@ export const Chip = forwardRef(
     }: ChipProps,
     ref: React.Ref<HTMLInputElement>,
   ) => {
-    const context = useFormContext()
-    const { classes } = useStyles({ size })
+    const context = useFormContext();
+    const { classes } = useStyles({ size });
 
     if (useController && name && context) {
       return (
@@ -138,7 +138,7 @@ export const Chip = forwardRef(
             </MantineChip>
           )}
         />
-      )
+      );
     }
 
     return (
@@ -152,6 +152,6 @@ export const Chip = forwardRef(
       >
         {children}
       </MantineChip>
-    )
+    );
   },
-)
+);

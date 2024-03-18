@@ -1,26 +1,26 @@
-import { List as MantineList } from '@mantine/core'
-import { type ReactNode } from 'react'
+import { List as MantineList } from '@mantine/core';
+import { type ReactNode } from 'react';
 
 export type ListProps = {
   /**
    * Center items with an icon.
    */
-  center?: boolean
+  center?: boolean;
 
   /**
    * `<List.Item />` components only.
    */
-  children?: ReactNode
+  children?: ReactNode;
 
   /**
    * List contents
    */
-  data?: { content: string; icon?: ReactNode; list?: ReactNode }[]
+  data?: { content: string; icon?: ReactNode; list?: ReactNode }[];
 
   /**
    * Icon that should replace the list item dot.
    */
-  icon?: ReactNode
+  icon?: ReactNode;
 
   /**
    * Define the list style.
@@ -38,50 +38,50 @@ export type ListProps = {
     | 'lower-latin'
     | 'upper-latin'
     | 'armenian'
-    | 'georgian'
+    | 'georgian';
 
   /**
    * Font size from the theme or a specific number.
    */
-  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Spacing between items from theme or a specific number.
    */
-  spacing?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  spacing?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * List type: ol or ul.
    */
-  type?: 'ordered' | 'unordered'
+  type?: 'ordered' | 'unordered';
 
   /**
    * Include padding-left to offset the list from the main content.
    */
-  withPadding?: boolean
+  withPadding?: boolean;
 
   /**
    * List class name.
    */
-  className?: string
-}
+  className?: string;
+};
 
 export type ListItemProps = {
   /**
    * Item content.
    */
-  children: ReactNode
+  children: ReactNode;
 
   /**
    * Icon to replace the bullet.
    */
-  icon?: ReactNode
+  icon?: ReactNode;
 
   /**
    * List.Item class name.
    */
-  className?: string
-}
+  className?: string;
+};
 
 export const List = ({
   children,
@@ -102,7 +102,7 @@ export const List = ({
           </MantineList.Item>
         ))}
     </MantineList>
-  )
-}
+  );
+};
 
-List.Item = MantineList.Item
+List.Item = MantineList.Item;

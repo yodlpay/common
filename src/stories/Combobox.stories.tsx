@@ -1,13 +1,13 @@
-import { useArgs } from '@storybook/preview-api'
-import type { Meta, StoryObj } from '@storybook/react'
-import { SIZE_OPTIONS } from '../styles'
-import { Combobox, type ComboboxProps } from '../components/Combobox'
+import { useArgs } from '@storybook/preview-api';
+import type { Meta, StoryObj } from '@storybook/react';
+import { SIZE_OPTIONS } from '../styles';
+import { Combobox, type ComboboxProps } from '../components/Combobox';
 
 const selectItems = [
   { value: 'USD', label: 'USD' },
   { value: 'EUR', label: 'EUR' },
   { value: 'CHF', label: 'CHF' },
-]
+];
 
 const defaults = {
   description: 'Amount to pay',
@@ -25,18 +25,18 @@ const defaults = {
   name: 'amount',
   inputValue: '',
   selectValue: selectItems[0].value,
-}
+};
 
 const render = function Component(args: ComboboxProps) {
-  const [, setArgs] = useArgs()
+  const [, setArgs] = useArgs();
 
   const handleInputChange = (inputValue: string | number) => {
-    setArgs({ inputValue })
-  }
+    setArgs({ inputValue });
+  };
 
   const handleSelectChange = (selectValue: string) => {
-    setArgs({ selectValue })
-  }
+    setArgs({ selectValue });
+  };
 
   return (
     <Combobox
@@ -44,8 +44,8 @@ const render = function Component(args: ComboboxProps) {
       onInputChange={handleInputChange}
       onSelectChange={handleSelectChange}
     />
-  )
-}
+  );
+};
 
 const meta: Meta<ComboboxProps> = {
   title: 'Components/Combobox',
@@ -83,19 +83,19 @@ const meta: Meta<ComboboxProps> = {
       },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<ComboboxProps> = {
   args: { ...defaults },
   render,
-}
+};
 
 export const NumberInput: StoryObj<ComboboxProps> = {
   args: { ...defaults, inputType: 'number' },
   render,
-}
+};
 
 export const WithIcon: StoryObj<ComboboxProps> = {
   args: {
@@ -103,7 +103,7 @@ export const WithIcon: StoryObj<ComboboxProps> = {
     icon: '$',
   },
   render,
-}
+};
 
 export const ErrorState: StoryObj<ComboboxProps> = {
   args: {
@@ -111,7 +111,7 @@ export const ErrorState: StoryObj<ComboboxProps> = {
     error: 'Invalid amount',
   },
   render,
-}
+};
 
 export const DisabledState: StoryObj<ComboboxProps> = {
   args: {
@@ -119,4 +119,4 @@ export const DisabledState: StoryObj<ComboboxProps> = {
     disabled: true,
   },
   render,
-}
+};

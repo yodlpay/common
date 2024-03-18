@@ -1,24 +1,24 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { ConfigItem, type ConfigItemProps } from '../components/ConfigItem'
-import { Usdc } from 'react-web3-icons'
-import { useArgs } from '@storybook/preview-api'
+import type { Meta, StoryObj } from '@storybook/react';
+import { ConfigItem, type ConfigItemProps } from '../components/ConfigItem';
+import { Usdc } from 'react-web3-icons';
+import { useArgs } from '@storybook/preview-api';
 
 const defaults: ConfigItemProps = {
   checked: false,
   label: 'USDC',
   onChange: (isChecked: boolean) =>
     console.log(`Checkbox is now ${isChecked ? 'checked' : 'unchecked'}`),
-}
+};
 
 const render = function Component(args: ConfigItemProps) {
-  const [, setArgs] = useArgs()
+  const [, setArgs] = useArgs();
 
   const handleChange = (checked: boolean) => {
-    setArgs({ checked })
-  }
+    setArgs({ checked });
+  };
 
-  return <ConfigItem {...args} onChange={handleChange} />
-}
+  return <ConfigItem {...args} onChange={handleChange} />;
+};
 
 const meta: Meta<ConfigItemProps> = {
   title: 'Components/ConfigItem',
@@ -41,14 +41,14 @@ const meta: Meta<ConfigItemProps> = {
       control: { type: 'boolean' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<ConfigItemProps> = {
   args: defaults,
   render,
-}
+};
 
 export const WithIcon: StoryObj<ConfigItemProps> = {
   args: {
@@ -56,7 +56,7 @@ export const WithIcon: StoryObj<ConfigItemProps> = {
     icon: <Usdc width="24px" height="24px" />,
   },
   render,
-}
+};
 
 export const WithDetails: StoryObj<ConfigItemProps> = {
   args: {
@@ -65,7 +65,7 @@ export const WithDetails: StoryObj<ConfigItemProps> = {
     details: '6 chains',
   },
   render,
-}
+};
 
 export const WithConfig: StoryObj<ConfigItemProps> = {
   args: {
@@ -74,7 +74,7 @@ export const WithConfig: StoryObj<ConfigItemProps> = {
     config: '6 chains',
   },
   render,
-}
+};
 
 export const Configurable: StoryObj<ConfigItemProps> = {
   args: {
@@ -84,7 +84,7 @@ export const Configurable: StoryObj<ConfigItemProps> = {
     configurable: true,
   },
   render,
-}
+};
 
 export const Configured: StoryObj<ConfigItemProps> = {
   args: {
@@ -95,7 +95,7 @@ export const Configured: StoryObj<ConfigItemProps> = {
     configured: true,
   },
   render,
-}
+};
 
 export const CheckedByDefault: StoryObj<ConfigItemProps> = {
   args: {
@@ -106,4 +106,4 @@ export const CheckedByDefault: StoryObj<ConfigItemProps> = {
     checked: true,
   },
   render,
-}
+};

@@ -1,17 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Carousel, type CarouselProps } from '../components/Carousel'
-import { Flex } from '../components/Flex'
-import { Text } from '../components/Text'
-import wallets from '../assets/images/carousel/wallets.svg'
-import exchanges from '../assets/images/carousel/exchanges.svg'
-import multisigs from '../assets/images/carousel/multisigs.svg'
-import offramp from '../assets/images/carousel/offramp.svg'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Carousel, type CarouselProps } from '../components/Carousel';
+import { Flex } from '../components/Flex';
+import { Text } from '../components/Text';
+import wallets from '../assets/images/carousel/wallets.svg';
+import exchanges from '../assets/images/carousel/exchanges.svg';
+import multisigs from '../assets/images/carousel/multisigs.svg';
+import offramp from '../assets/images/carousel/offramp.svg';
 
 type CarouselItemProps = {
-  image: string
-  title: string
-  description: string
-}
+  image: string;
+  title: string;
+  description: string;
+};
 
 const CarouselItem = ({ image, title, description }: CarouselItemProps) => {
   return (
@@ -20,8 +20,8 @@ const CarouselItem = ({ image, title, description }: CarouselItemProps) => {
       <Text>{title}</Text>
       <Text>{description}</Text>
     </Flex>
-  )
-}
+  );
+};
 
 const defaults: CarouselProps = {
   height: 200,
@@ -57,7 +57,7 @@ const defaults: CarouselProps = {
       description="Input the offramp receive address to automate offramping"
     />,
   ],
-}
+};
 
 const meta: Meta<CarouselProps> = {
   title: 'Components/Carousel',
@@ -105,22 +105,22 @@ const meta: Meta<CarouselProps> = {
       control: { type: 'select' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<CarouselProps> = {
   args: {
     ...defaults,
   },
-}
+};
 
 export const WithLoop: StoryObj<CarouselProps> = {
   args: {
     ...defaults,
     loop: true,
   },
-}
+};
 
 export const WithAutoplay: StoryObj<CarouselProps> = {
   args: {
@@ -128,14 +128,14 @@ export const WithAutoplay: StoryObj<CarouselProps> = {
     loop: true,
     withAutoplay: true,
   },
-}
+};
 
 export const VerticalOrientation: StoryObj<CarouselProps> = {
   args: {
     ...defaults,
     orientation: 'vertical',
   },
-}
+};
 
 export const WithCustomControls: StoryObj<CarouselProps> = {
   args: {
@@ -144,18 +144,18 @@ export const WithCustomControls: StoryObj<CarouselProps> = {
     nextControlIcon: '→',
     previousControlIcon: '←',
   },
-}
+};
 
 export const WithIndicators: StoryObj<CarouselProps> = {
   args: {
     ...defaults,
     withIndicators: true,
   },
-}
+};
 
 export const Clickable: StoryObj<CarouselProps> = {
   args: {
     ...defaults,
     clickable: true,
   },
-}
+};

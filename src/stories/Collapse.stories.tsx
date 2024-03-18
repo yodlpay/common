@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react'
-import { Collapse, type CollapseProps } from '../components/Collapse'
-import { Button } from '../components/Button'
-import { useArgs } from '@storybook/preview-api'
-import { Text } from '../components/Text'
-import { Flex } from '../components/Flex'
+import type { Meta, StoryObj } from '@storybook/react';
+import { Collapse, type CollapseProps } from '../components/Collapse';
+import { Button } from '../components/Button';
+import { useArgs } from '@storybook/preview-api';
+import { Text } from '../components/Text';
+import { Flex } from '../components/Flex';
 
 const defaults: CollapseProps = {
   in: false,
@@ -11,14 +11,14 @@ const defaults: CollapseProps = {
   transitionTimingFunction: 'ease',
   animateOpacity: true,
   children: 'Content inside collapse',
-}
+};
 
 const render = function Component(args: CollapseProps) {
-  const [, setArgs] = useArgs()
+  const [, setArgs] = useArgs();
 
   const handleToggle = () => {
-    setArgs({ in: !args.in })
-  }
+    setArgs({ in: !args.in });
+  };
 
   return (
     <Flex direction="column">
@@ -29,8 +29,8 @@ const render = function Component(args: CollapseProps) {
         Toggle Collapse
       </Button>
     </Flex>
-  )
-}
+  );
+};
 
 const meta: Meta<CollapseProps> = {
   title: 'Components/Collapse',
@@ -54,16 +54,16 @@ const meta: Meta<CollapseProps> = {
       description: 'Whether opacity should be animated or not.',
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<typeof meta> = {
   args: {
     ...defaults,
   },
   render,
-}
+};
 
 export const LongerTransition: StoryObj<typeof meta> = {
   args: {
@@ -71,7 +71,7 @@ export const LongerTransition: StoryObj<typeof meta> = {
     transitionDuration: 1000,
   },
   render,
-}
+};
 
 export const LinearTransition: StoryObj<typeof meta> = {
   args: {
@@ -79,4 +79,4 @@ export const LinearTransition: StoryObj<typeof meta> = {
     transitionTimingFunction: 'linear',
   },
   render,
-}
+};

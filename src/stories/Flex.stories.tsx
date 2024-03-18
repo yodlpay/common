@@ -1,23 +1,23 @@
-import { createStyles } from '@mantine/core'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Button } from '../components/Button'
-import { Flex, type FlexProps } from '../components/Flex'
+import { createStyles } from '@mantine/core';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Button } from '../components/Button';
+import { Flex, type FlexProps } from '../components/Flex';
 
 const useStyles = createStyles(() => ({
   flex: {
     height: '150px',
   },
-}))
+}));
 
 const defaults: FlexProps = {
   direction: 'row',
   align: 'center',
   justify: 'center',
   gap: 'md',
-}
+};
 
 const render = function Component(args: FlexProps) {
-  const { classes } = useStyles()
+  const { classes } = useStyles();
 
   return (
     <Flex {...args} className={classes.flex}>
@@ -25,8 +25,8 @@ const render = function Component(args: FlexProps) {
       <Button>Button 2</Button>
       <Button>Button 3</Button>
     </Flex>
-  )
-}
+  );
+};
 
 const meta: Meta<FlexProps> = {
   title: 'Components/Flex',
@@ -70,16 +70,16 @@ const meta: Meta<FlexProps> = {
       control: { type: 'select' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<FlexProps> = {
   args: {
     ...defaults,
   },
   render,
-}
+};
 
 export const ColumnDirection: StoryObj<FlexProps> = {
   args: {
@@ -87,4 +87,4 @@ export const ColumnDirection: StoryObj<FlexProps> = {
     direction: 'column',
   },
   render,
-}
+};

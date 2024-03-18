@@ -1,42 +1,42 @@
-import React from 'react'
-import { Collapse as MantineCollapse } from '@mantine/core'
+import React from 'react';
+import { Collapse as MantineCollapse } from '@mantine/core';
 
 export type CollapseProps = {
   /**
    * Should opacity be animated.
    */
-  animateOpacity?: boolean
+  animateOpacity?: boolean;
 
   /**
    * Content that should be collapsed.
    */
-  children: React.ReactNode
+  children: React.ReactNode;
 
   /**
    * Opened state.
    */
-  in: boolean
+  in: boolean;
 
   /**
    * Called each time transition ends.
    */
-  onTransitionEnd?: () => void
+  onTransitionEnd?: () => void;
 
   /**
    * Transition duration in milliseconds.
    */
-  transitionDuration?: number
+  transitionDuration?: number;
 
   /**
    * Transition timing function (ease, linear, etc.).
    */
-  transitionTimingFunction?: string
+  transitionTimingFunction?: string;
   /**
    * Collapse class name
    */
-  className?: string
-}
+  className?: string;
+};
 
 export const Collapse = ({ className, ...props }: CollapseProps) => {
-  return <MantineCollapse {...props} className={className} />
-}
+  return <MantineCollapse {...props} className={className} />;
+};

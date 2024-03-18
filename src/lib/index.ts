@@ -1,5 +1,5 @@
-import Decimal from 'decimal.js'
+import Decimal from 'decimal.js';
 
-Decimal.set({ precision: 78, toExpPos: 78 })
+Decimal.set({ precision: 78, toExpPos: 78 });
 
-export { Decimal }
+export { Decimal };

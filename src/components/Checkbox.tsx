@@ -1,4 +1,4 @@
-import { CheckCircleIcon } from '@heroicons/react/20/solid'
+import { CheckCircleIcon } from '@heroicons/react/20/solid';
 import {
   Checkbox as MantineCheckbox,
   clsx,
@@ -7,16 +7,16 @@ import {
   type CheckboxGroupProps as MantineCheckboxGroupProps,
   type CheckboxProps as MantineCheckboxProps,
   type MantineColor,
-} from '@mantine/core'
-import { forwardRef, type FC, type ReactNode } from 'react'
-import { Controller, useFormContext } from 'react-hook-form'
-import { Flex } from './Flex'
-import { Text } from './Text'
+} from '@mantine/core';
+import { forwardRef, type FC, type ReactNode } from 'react';
+import { Controller, useFormContext } from 'react-hook-form';
+import { Flex } from './Flex';
+import { Text } from './Text';
 
 type StylesProps = {
-  checked: boolean
-  variant: 'default' | 'outline'
-}
+  checked: boolean;
+  variant: 'default' | 'outline';
+};
 
 const useStyles = createStyles((theme, { checked, variant }: StylesProps) => ({
   checkbox: {
@@ -107,110 +107,110 @@ const useStyles = createStyles((theme, { checked, variant }: StylesProps) => ({
   checkIcon: {
     color: theme.colors?.subtle?.[0],
   },
-}))
+}));
 
 export type CheckboxProps = {
   /** Key of theme.colors */
-  color?: MantineColor
+  color?: MantineColor;
 
   /** Determines whether the checkbox is checked or unchecked initially. */
-  checked?: boolean
+  checked?: boolean;
 
   /** Description, displayed after the label */
-  description?: ReactNode
+  description?: ReactNode;
 
   /** Error message displayed after the input */
-  error?: ReactNode
+  error?: ReactNode;
 
   /** Icon rendered before the label */
-  icon?: ReactNode
+  icon?: ReactNode;
 
   /** Icon rendered when checkbox has checked or indeterminate state */
-  checkIcon?: FC<{ indeterminate: boolean; className: string }>
+  checkIcon?: FC<{ indeterminate: boolean; className: string }>;
 
   /** Indeterminate state of checkbox, if set, `checked` prop is ignored */
-  indeterminate?: boolean
+  indeterminate?: boolean;
 
   /** Checkbox label */
-  label?: ReactNode
+  label?: ReactNode;
 
   /** Position of the label */
-  labelPosition?: 'left' | 'right'
+  labelPosition?: 'left' | 'right';
 
   /** Called when value changes */
-  onChange?: (value: boolean) => void
+  onChange?: (value: boolean) => void;
 
   /** Key of theme.radius or any valid CSS value to set border-radius. Defaults to theme.defaultRadius. */
-  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  radius?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /** Controls label font-size and checkbox width and height */
-  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: number | 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /** Checkbox should use Controller from react-hook-form */
-  useController?: boolean
+  useController?: boolean;
 
   /** Transition duration in ms */
-  transitionDuration?: number
+  transitionDuration?: number;
 
   /** Props added to the root element */
-  wrapperProps?: Record<string, any>
+  wrapperProps?: Record<string, any>;
 
   /** Controls appearance */
-  variant?: 'default' | 'outline'
+  variant?: 'default' | 'outline';
 
   /** Input class name */
-  className?: string
-} & Omit<MantineCheckboxProps, 'icon' | 'onChange'>
+  className?: string;
+} & Omit<MantineCheckboxProps, 'icon' | 'onChange'>;
 
 export type CheckboxGroupProps = {
   /** `<Checkbox />` components */
-  children: ReactNode
+  children: ReactNode;
 
   /** Initial selected checkboxes, use for uncontrolled components, overridden by value prop */
-  defaultValue?: string[]
+  defaultValue?: string[];
 
   /** Input description, displayed after label */
-  description?: ReactNode
+  description?: ReactNode;
 
   /** Props spread to description element */
-  descriptionProps?: Record<string, any>
+  descriptionProps?: Record<string, any>;
 
   /** Displays error message after input */
-  error?: ReactNode
+  error?: ReactNode;
 
   /** Props spread to error element */
-  errorProps?: Record<string, any>
+  errorProps?: Record<string, any>;
 
   /** Input container component, defaults to React.Fragment */
-  inputContainer?: (children: ReactNode) => ReactNode
+  inputContainer?: (children: ReactNode) => ReactNode;
 
   /** Controls order of the Input.Wrapper elements */
-  inputWrapperOrder?: ('input' | 'label' | 'error' | 'description')[]
+  inputWrapperOrder?: ('input' | 'label' | 'error' | 'description')[];
 
   /** Input label, displayed before input */
-  label?: ReactNode
+  label?: ReactNode;
 
   /** Props spread to label element */
-  labelProps?: Record<string, any>
+  labelProps?: Record<string, any>;
 
   /** Called when value changes */
-  onChange?: (value: string[]) => void
+  onChange?: (value: string[]) => void;
 
   /** Adds required attribute to the input and red asterisk on the right side of label */
-  required?: boolean
+  required?: boolean;
 
   /** Controls label font-size and checkbox width and height */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /** Value of selected checkboxes, use for controlled components */
-  value?: string[]
+  value?: string[];
 
   /** Determines whether required asterisk should be rendered, overrides required prop, does not add required attribute to the input */
-  withAsterisk?: boolean
+  withAsterisk?: boolean;
 
   /** Props added to Input.Wrapper component (root element) */
-  wrapperProps?: Record<string, any>
-} & MantineCheckboxGroupProps
+  wrapperProps?: Record<string, any>;
+} & MantineCheckboxGroupProps;
 
 const InnerCheckbox = forwardRef(
   (
@@ -228,14 +228,14 @@ const InnerCheckbox = forwardRef(
     }: CheckboxProps,
     ref: React.Ref<HTMLInputElement>,
   ) => {
-    const context = useFormContext()
+    const context = useFormContext();
 
-    const { classes } = useStyles({ checked, variant })
+    const { classes } = useStyles({ checked, variant });
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-      const value = event.currentTarget.checked
-      onChange(value)
-    }
+      const value = event.currentTarget.checked;
+      onChange(value);
+    };
 
     const renderContent = (icon?: ReactNode) => (
       <>
@@ -251,7 +251,7 @@ const InnerCheckbox = forwardRef(
           />
         )}
       </>
-    )
+    );
 
     let renderedLabel =
       variant === 'outline' ? (
@@ -260,7 +260,7 @@ const InnerCheckbox = forwardRef(
         </Flex>
       ) : (
         label
-      )
+      );
 
     if (icon) {
       renderedLabel =
@@ -273,7 +273,7 @@ const InnerCheckbox = forwardRef(
             {icon}
             <Text ml={'6px'}>{label}</Text>
           </Flex>
-        )
+        );
     }
 
     if (useController && name && context) {
@@ -290,8 +290,8 @@ const InnerCheckbox = forwardRef(
               icon={checkIcon}
               value={field.value}
               onChange={(e) => {
-                field.onChange(e)
-                handleChange(e)
+                field.onChange(e);
+                handleChange(e);
               }}
               onBlur={field.onBlur}
               className={clsx(classes.checkbox, className)}
@@ -299,7 +299,7 @@ const InnerCheckbox = forwardRef(
             />
           )}
         />
-      )
+      );
     }
 
     return (
@@ -312,14 +312,14 @@ const InnerCheckbox = forwardRef(
         className={clsx(classes.checkbox, className)}
         ref={ref}
       />
-    )
+    );
   },
-)
+);
 
-const CheckboxGroup = MantineCheckbox.Group
+const CheckboxGroup = MantineCheckbox.Group;
 
 const Checkbox = Object.assign(InnerCheckbox, {
   Group: CheckboxGroup,
-})
+});
 
-export { Checkbox }
+export { Checkbox };

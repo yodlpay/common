@@ -1,9 +1,9 @@
-import { CheckBadgeIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
-import { createStyles } from '@mantine/core'
-import type { Meta, StoryObj } from '@storybook/react'
-import { Ethereum, MetaMask, Shib } from 'react-web3-icons'
-import { NavLink, type NavLinkProps } from '../components/NavLink'
-import { MINIMAL_SIZE_OPTIONS } from '../styles'
+import { CheckBadgeIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
+import { createStyles } from '@mantine/core';
+import type { Meta, StoryObj } from '@storybook/react';
+import { Ethereum, MetaMask, Shib } from 'react-web3-icons';
+import { NavLink, type NavLinkProps } from '../components/NavLink';
+import { MINIMAL_SIZE_OPTIONS } from '../styles';
 
 const useStyles = createStyles((theme) => ({
   chevronIcon: {
@@ -12,14 +12,14 @@ const useStyles = createStyles((theme) => ({
   badge: {
     marginLeft: '4px',
   },
-}))
+}));
 
 const StyleProvider: React.FC<{
-  children: (classes: ReturnType<typeof useStyles>) => JSX.Element
+  children: (classes: ReturnType<typeof useStyles>) => JSX.Element;
 }> = ({ children }) => {
-  const classes = useStyles()
-  return children(classes)
-}
+  const classes = useStyles();
+  return children(classes);
+};
 
 // TODO - WIP
 
@@ -35,7 +35,7 @@ const defaults: NavLinkProps = {
   size: 'md',
   style: { background: 'black' },
   withBorder: true,
-}
+};
 
 const meta: Meta<NavLinkProps> = {
   title: 'Components/NavLink',
@@ -76,9 +76,9 @@ const meta: Meta<NavLinkProps> = {
       control: { type: 'select' },
     },
   },
-}
+};
 
-export default meta
+export default meta;
 
 export const SmallWithFullProps: StoryObj<NavLinkProps> = {
   args: {
@@ -112,7 +112,7 @@ export const SmallWithFullProps: StoryObj<NavLinkProps> = {
     ),
     size: 'sm',
   },
-}
+};
 
 export const MediumWithIconAndLabel: StoryObj<NavLinkProps> = {
   args: {
@@ -132,7 +132,7 @@ export const MediumWithIconAndLabel: StoryObj<NavLinkProps> = {
     ),
     size: 'md',
   },
-}
+};
 
 export const LargeWithIconAndLabel: StoryObj<NavLinkProps> = {
   args: {
@@ -152,4 +152,4 @@ export const LargeWithIconAndLabel: StoryObj<NavLinkProps> = {
     ),
     size: 'lg',
   },
-}
+};

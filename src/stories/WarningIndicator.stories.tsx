@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react';
 import {
   WarningIndicator,
   type WarningIndicatorProps,
-} from '../components/WarningIndicator'
+} from '../components/WarningIndicator';
 
 const defaults: WarningIndicatorProps = {
   label: 'Warning!',
@@ -20,7 +20,7 @@ const defaults: WarningIndicatorProps = {
   padding: 'sm',
   type: 'warning',
   backgroundShade: -1,
-}
+};
 
 const meta: Meta<WarningIndicatorProps> = {
   title: 'Components/WarningIndicator',
@@ -54,16 +54,16 @@ const meta: Meta<WarningIndicatorProps> = {
       description: 'Type of indicator',
     },
   },
-} satisfies Meta<typeof WarningIndicator>
+} satisfies Meta<typeof WarningIndicator>;
 
-export default meta
+export default meta;
 
 export const Default: StoryObj<WarningIndicatorProps> = {
   args: {
     ...defaults,
     verticalMargin: 6,
   },
-}
+};
 
 export const Horizontal: StoryObj<WarningIndicatorProps> = {
   args: {
@@ -71,7 +71,7 @@ export const Horizontal: StoryObj<WarningIndicatorProps> = {
     horizontal: true,
     horizontalMargin: 6,
   },
-}
+};
 
 export const InfoType: StoryObj<WarningIndicatorProps> = {
   args: {
@@ -80,7 +80,7 @@ export const InfoType: StoryObj<WarningIndicatorProps> = {
     type: 'info',
     verticalMargin: 6,
   },
-}
+};
 
 export const WithBorder: StoryObj<WarningIndicatorProps> = {
   args: {
@@ -88,7 +88,7 @@ export const WithBorder: StoryObj<WarningIndicatorProps> = {
     withBorder: true,
     verticalMargin: 6,
   },
-}
+};
 
 export const CustomBackground: StoryObj<WarningIndicatorProps> = {
   args: {
@@ -96,4 +96,4 @@ export const CustomBackground: StoryObj<WarningIndicatorProps> = {
     backgroundShade: 1,
     verticalMargin: 6,
   },
-}
+};
